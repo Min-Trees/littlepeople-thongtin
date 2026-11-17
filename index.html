@@ -124,10 +124,10 @@ button:focus-visible{outline:3px solid #f2b70599;outline-offset:2px}
 <script>
 /* ====== CẤU HÌNH: chỉnh ở đây ====== */
 const CONFIG = {
-  ENDPOINT: "https://script.google.com/macros/s/AKfycbx1EEFu5Kq_rNfDJKv3jtH2TlXeH1pf9tNd-YuHzridNuaUhkmguyGcduAi3JuPXSzd/exec", // URL Web App của Apps Script (đuôi /exec). Để trống = tải file JSON để thử.
+  ENDPOINT: "https://script.google.com/macros/s/AKfycbzPIunKWQvbtOqWWKxwLpeBdbyf2qe8mx_MJyo2PVDGGxed65j0lbLKMS8PxCNEKETK/exec", // URL Web App của Apps Script (đuôi /exec). Để trống = tải file JSON để thử.
   ADDR_API: "https://provinces.open-api.vn/api/v2", // API tỉnh/phường-xã sau sáp nhập. Để "" nếu không dùng.
   TINH: "",                // Tỉnh/TP chọn sẵn cho địa chỉ cư trú, ví dụ "Thành phố Hồ Chí Minh". Để trống nếu muốn phụ huynh tự chọn.
-  LOP: [],                 // Danh sách lớp: [["Lớp Mầm","Mẫu giáo bé"],["Lớp Chồi","Mẫu giáo nhỡ"]] = [tên thực tế, tên sổ sách]. Để [] thì phụ huynh tự gõ 2 tên.
+  LOP: [["TINY","NHÀ TRẺ 1"],["TINY 1","NHÀ TRẺ 1"],["TINY 2","NHÀ TRẺ 2"],["TINY HS","NHÀ TRẺ 2"],["L1HS","MẦM 1"],["L1A","MẦM 2"],["L2HS","CHỒI 1"],["L2A","CHỒI 2"],["L3HS","LÁ 1"],["L3A","LÁ 2"]],                 // Danh sách lớp: [["Lớp Mầm","Mẫu giáo bé"],["Lớp Chồi","Mẫu giáo nhỡ"]] = [tên thực tế, tên sổ sách]. Để [] thì phụ huynh tự gõ 2 tên.
   DIA_BAN: {}              // Phường/xã -> danh sách khu phố/ấp. Có thể để {} và nhập trong Google Sheet (tab DiaBan), form tự tải về.
 };
 /* =================================== */
