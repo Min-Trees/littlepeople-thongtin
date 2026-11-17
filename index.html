@@ -51,7 +51,7 @@ input:focus,select:focus,textarea:focus{outline:3px solid #f2b70566;border-color
 .opt input{margin-top:3px;width:26px;height:26px;flex:none;accent-color:var(--navy)}
 .sub{border-left:4px solid var(--gold);background:var(--soft);border-radius:0 12px 12px 0;padding:14px 16px 2px;margin-bottom:16px}
 .sub h3{margin:0 0 12px;font-size:1rem;display:flex;justify-content:space-between;align-items:center}
-.addr{margin-bottom:4px}.combo [data-ct]{margin-top:8px}.combo.load select{opacity:.5}
+.addr{margin-bottom:4px}.combo [data-ct]{margin-top:8px}.oth{margin-top:8px}.dw{position:relative}.dw>input[type=text]{padding-right:62px}.cal{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;background:var(--soft);border-radius:10px;color:var(--navy);display:grid;place-items:center;padding:0}.cal:hover{background:#d3e8f7}.cal svg{width:22px;height:22px;pointer-events:none}.dw input.dp{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:44px;height:44px;min-height:0;padding:0;border:0;opacity:0;pointer-events:none}.dw input.dp.over{pointer-events:auto}.hoc{margin-bottom:16px}.hy{font-weight:600;color:var(--navy);margin:2px 0 4px}.hrow{background:#f6fafd;border:1px solid #e3edf5;border-radius:10px;padding:10px 12px 0;margin-bottom:8px}.combo.load select{opacity:.5}
 button{font:inherit;cursor:pointer}
 .btn{background:var(--navy);color:#fff;border:0;border-radius:12px;padding:15px 32px;font-weight:700;font-size:1.05rem}
 .btn:hover{background:#004f8f}.btn:disabled{opacity:.6;cursor:wait}
@@ -75,15 +75,16 @@ button:focus-visible{outline:3px solid #f2b70599;outline-offset:2px}
 <div class="top"><div>
   <img class="logo" alt="Little People" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcwAAAClCAYAAADRV82gAABaVElEQVR42u2deZhcVZn/P++599bSS0KAIKggMgqSuIMobulGEWUJYekeBR0g6TSjjo6Mjo7+HKvLcR8V9xlCEkBEx24gC2ETZtKto4KKg46J4oLLiAgRsnR3bffe8/7+uLc6C0l39ZpOON/nqYc8TVXdU+e85/2e9z3vAg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg6zB+KmYN9QRfr6MB1uKqYWHVgR1E2Eg4ODw4FOlCAbN+K7mZg+9PbiuVlwcHBwFuYBblXWrR+9jWwYHPZ8ieKnxuA0/CQQA54PcYj9r3vNwJnFx3doAQMgRaybIQcHB0eYByBZai9eeOi8dxlDt6dy/Iit6WZr8tJWgR/9PP6VVf3gS/9+Ry/AxgJ+Ww+xc9M6ODg4wjwQyLKAoQflzjnzbODdaJqlnRKENVUFFcAp9EkKmyBDZfQ3/6de4EEU64ZqJP/v1Hdt+ymA9uJJJ7GbKQcHh9kId0+368GhHy/E6wuapT3cpjUEXwQj7mAxVYSJANVQbS2E1rycba2+9gdfmPv54ZhPSOf2baoIPYhz0+7jYKcIfRjmI/1A25b0EDc/ldE2rIibOwcHR5jTpYQ24kk7UXTqvGXBIXJauE1DETJuZqbtdGJEYLCssTHkWvPyPq+qF977+TkFkR03QOIWd9G0uxGloQ8RIYaxrXBVPHDz5+Aw9ZbVVKJQMCzsETb1zwKrrM1SlDFP2/VTezR33n1+Tp5XKytGkoAUh6mDMTBUgs0PWiSVDgUVJc4E+IEv1CK9s1rjAy//h+0/BuemrctmfQ70zqccQVB7SRjqiwU5VpWMCGqEvyhs9oR75fSt/zvyeefmdnCYhYRZKBg2LxT6OmfX5lQVepB9EacWMFLE6l1zj4us+YUIgboz+YwR5sg6gEXRlrx41ZqGiHwpJv7oS98x+NiT1U2riqm7V/Wuw15ijX27jTnbz8lh+Mmk7baTFaKSWmP4kSqrvf/bep1cRsWRpoPD1GBqXLIFNSOE9K+bnoGRFyN2PpGV/ZOLYQDdjur9iPwCUDp6vb2Red/C9NAg3uG+p0EYoSLuznI/nNwMAkNljUUI5jRxRalqzv/B5+YWRbZfA2hvL17nk0Txay+eCPG23jmHNh9mPmbFLjdZMaashCW18MTDg4IYwTMZOQWfU+wxh7wzvFPeI2dsvV178ejECs5F6+Cw/yxMVYOI5ePfOY78/A9j9VwymRZkf2ctKlTLNYzZSFgp8I8vvHdvpFlXwnrXYS9B7A8cYe4fC/MJi6fEQYCfDYRqjf+qRfEHTr1i8N5CAdNTRA9mxV+3CKu3znuel6fPy8sJ4XZV0nTWMeRTVVHABjnxEYirFPzXPf5hdy/s4LA/LcxCSpaf/PEisk19ZPLzKe+Aci1GZP9uSlVBJEOm5QyQ0/jkjy/hfS/+xr4sTYdZdpAT/DDC1kLV5pycBua7P/z83I+85O+39/QUMNpzcKb5pG7YuHrb3Bf5Ob5lfDk83K6hCEGD+1VSQjVhRa0Y1J8jxerth7TKG7b9oyYVrCInYg4OEzj0T4ose1D+9f5nEuTWIGY+w9tC1CoiXrq5998rGYNSHoywYUC26QY+89NF9HXGdPS6oj0HiHyK4A1XNK7FmDnNUvj+5+Z+VYrYvj4MB1m6jyqmpweGNsw/0mRknfHk8LCkUUqW4z91CEYtJtquYeYQ857a7fP+QdqJ1JUldHCYYcJc2CeIKGI+Ra55HrVyiEjAWM62GbdUxCeOY4wvWPtFrvpRwIJNziV1IJmb6U3444MaHtoib/nelXM+3dlJ3Nt78EUyF4vYjIlW+k3m6JQs/UnOnajiR0Mamyyfqt059yRJ5s6RpoPDjBBmQQ2dnTEf/8FxiCymPGiRWZzTKeJRHY7JNj+PweDVFIuWXnUK40AizcTV6G8b0nBO3rz7ns8ecm5nJ/HBYi2p4olgK3fMXRLMkbOiHRqJmZo9JYLYGLxAPKPmswrSscndYzo4zJCF2Z98zs+fQrY5g411llmWe9Maip9RkDaA2ZEn6jDeVbTg1SJVjP3iz1ce1koHVvWgcM1aVcRDPoBNbuCndKMLXlTS2MvLq6Pb575Giti0uIGDg8P0EmYd8dMQw34P8BmPoWI41C37AW1pmmpIPLfJHL1jKOoWQft7DmzFn6aQaHjnoS8xgbwkLCkyDc1xVFF8VI10AdDn5MnBYeYIU8Q74M726lxRBwFrmnJNNbb6d7+95hm59iIxB3IAUFoHViQ+0+QFmLZcU08rKihtuvawVukkPkiscweHA8HCdHDYT1ZmhDblzLGPbt/2CpKiBgeuLLclRQgs8tKU+qeFxESQKEJ9X54SNoUn7JxOBwcHR5gOBzNp2oyPWngNwPxNB6ziFxGsFjAGOTbNkJzO32IlKxjr/RVAf7/TAQ4OjjAdDmqoItYiqD4XYMvCA9PVPlK3+OVPyYO2Mt2FjJUk1EdpTYxbBwcHR5gOB7uFiQXEMBfApUk4ODg4wnRwGMtiOpCJv+58fd0jZVRK056dJST9TzyGnfA4ODjCdHA4oChfC0kbL4U/pKUKpu8QoBiqio35HQBbnGXu4OAI08HhQEFbsg9F+CEeOl1WsyrqB0gY8pfhiv05AB1Prh6jDg6OMB0cDmSkVp7G3EoVEZm2fRlLVhT49rzztm+rF0xwC+Dg4AjTweGAQL2AQJDfek9U1f/1syI6PcULBEVE9NrUunRwcBgHfDcFDg6zAH0Y6SSKvsXHCfg6Faa0Bo9CHOTFi4btj/3sttvTe9MnZ19YVaGnZ+zZLRYVnAXu4AjTwWE2WpmGnq3fjE6dd3nQIovCwanpWKKKikFVQYUrJtUTs1AwbF4oLOhQijJz959T9dx60/tGibBQMBSL7p7XwRHmgXtARpE0NEQgcbO5EmcHPHpAitjyBrtUquYHflYOi2oa1/uBTgKRP1eC6DH9l8yZ276tvXjSOQ7rUlVo6/do67e7k4cKTGPjBVWhrcejrcfuQZIyYcuvKJbLbptPwByo7Pt9Xqvyb//9u/T3Tvx5Do4wHfYTSYJFwPPwjIdgJNnGVokiUCUCzDQGjThMp5VZxGovnpy9/cHabYdcIDluD7KSDysTszRVsYAN5pkg2ma/Gpy59UPai0dnI5GxKnT0GRZ0aGqRRQwAb91wHDHHE1X/yGr52TRIevJcAJE4eW4Rutcfg5UTsZVHWd3xPxOyUItFS9faj+F5f0tcaUW9ve8TQdGK0n3KT7DrLmHluZucpengCPPAIcvYM3imSTwUopKt2FgeBbsDwQM53DPMlybxiSAsq030jSPOA44006bYcua2gdIth5yRbeY/gjny1HBI6xahkTFqzSpYFBsE4pPDRNvtF4Mztr5TFQNYGc1a6uhNrNk+ielLrdDLb3kasbwe0QsJ9dX4QROZIGb5msu4+rzr6ej16Ouc3H3o3p77tg1HEukZYM5HbTue30owF7rWv5WVi/+dDvXok7GfO0KWG15IELyfOEwne5RptLGlqfUkyttX0dH7CtjkLEwHR5gHgFWpQYt4UVnLlOz6SGVtBr33T7X8I0895+EyfRjmzWtB7F/FJW8Rom8KmuQlxBBWp8Sd57C/SPOcbd8prZ93aha9MsjL+QjYshJbYkB362pSz90UTBCIIYeJy/rHeFg/kH3dtuvTNl66zzQSVUGMjhDf2+86jFrldJALsPpaMrlDUAtRBaJqjUxzhshcBlzPgo5JkIkmI5KU+N66YR6RPQ3xLiC0ryPIHwYKYQWiakimKQDbBfw7vYnHZUxsXpi8S+PjIGOJI4uIz2iFewWhMmiBE5iXm0ex+JdkjsQRpyNMh9kGa1HPQ7yciK3o12NjPhy85rEHdr5je/0fMWzdDvwY+LHC56K7Dj3fePrRoFVOCAcdaTZk3SyY3/gd8OYtOmmLqlHSXLz1D8AF4d3z3iDo36mR9qBZ8iPFdOs3bCb9bw3iSH9tS3J9pRR+Zc7iob9oLx4yqmW5kwi6178OzEXUKq8nyD0FSMiqNhSnV3kGxceGiupcgMkF/0hC5d0b2oGLiPRM/NxTEZOQc204nWc1IB4aK9CUWojjIy+1FjC7fE5GNdRFDKqR64Dm4AhzlpOlHyAqVGrl+K3ZM7ZfCzAS2bgJpWeXtIO6bdGPoY04kMdverx33t2th+pXgla5KBzSWHCkuU+ymBD5TXPAS0qahQKmB5DXbr0duF2/M/e4eMh7tYi+GDgmVuZgNcLIFhPoJk/0e97jrff6nX8s12Vm1ACfQsFQ7FG6bzkG8VZhgtfuJKvS7mQ1wjGqTLrorSafX7b+CDyzChOchedBWIWwvI/nkjxXzAzeJYpjSwdHmLMVqqgXoAhVrcSLs2ftuEs34tOP3U3xFXdT+XXatAC6EV/at24HLg7vmrc1aJW3Rzs0Qtx675X0Lrv5lWSaXoatgdp9K0gxislAWPouq+X7M0GaxSK2WD8sbULlVdsfBB4Ert33p7ajSRMvO2auZT8GJMKu/SjNh72WoS0hgkExyG5kNbVY1O8x0B4haz9I/tCzGNoSEiKAN+ZzVR2JOTjCdAAxWC8jXm1Yl2bP2nGX9pKRdmrj+o52Ii1gWIjI6Vv/Lrpz3rF+i5wVDjn37O6WlViWbTgRj36CrIf1RzcoVMEY0Dima83JrJT7KaiZiXzE+mFJC5h67Vm2oD2b0B6AHoR+hC0oHQ0QZR1tWAYA5anUSjEiJiGtaf5BR2ypHzT+inCX5zo4OMJ0aNC6jIMW8cJBvS77hq3f0B8RyMnjI8sRBVvEqmIUZDj0u7Ll6H+Nz2E2xooribgzEIT4RLwmj/L2KoI3arZdko0Xk23JEsULgPvp7zF1y35GDlRFLMXdn1fc0+MwoS8mSglrZqv/iIn3y3MdHCYApzhnD1mq8TBxyQ6GVj6oinDL5JSICJaNeC1nb/mzWj7lNYmougTs3XeAicBqEjUpPjLKq/7/1SpoeLA5N/aT4Dv3qoMjTIdxI/aaRGzMN5vPfPyPgJHiFFgubWlhb41XRYP6WODjOdLcVWFbGX9gh0iDCQ0ODg4HEZxLdjYdXiIQTK8qQt8UmQ2CJpGSOx6v3XHIXZI3b2RQY7f2B7Ql6A48B9N6FgqS1MndJbWpH2hL/715i7Jgk7pi8I4wHUgb+/qYsKzbAi/6sQialjWbGsxHVJH4LhkA3uhMowMQBTXQQ0Pl2Tp6Pfo67HRH8LqUi0mQZEev4dH5wkB7lBLhEzGwl78t2uhzxPTnATs4wpzVnCm+iMT6Bzl98LG6ZThl374lqfCi39KfEwqalFdzOIDEY1yRuDuV6b6t0ZFiDVsMhY2Wh7aP39AVDSls9Hn4l8JRx+/+nH5goD1+wvPrz7237FHYKDy0QyY0H4WNe9dd/cBAWzz9h4VJEGVfZzyyRh29HnOb/wqi41E9DuFwkBZUBSNDWN2C5/8GzC9YceZvGGiPdj8YdTbeecXBEeZBct7U9DZ5R2pxypQSZkf6XYattqauxuwBZVmm6S/d61+JyfQQVw9D0b12yxQU41vgu0ThB1m9ZHCfuaJ7WijL1jVOXCKKGMBsp7iLAh8fmUfcAXStrY0/3kiicT93f6Neb7evM6aj1+OQpnZUz0NoQ+NnE+QDjLfHGSf9t40grFZZvuEXYDci/k2sOPO/dyNdZ3E6wnzyEec0RwzGakY6nDgcKJalsqz3UKzeRCZ7xJhFdlQh23ISw489h+4fnc1RPTFFnlgKrnvDeWCeh63mULGgC4lroGrG9LSqmuS99gSWrf0oIga7S11W41lEHkAe+g9WXB4mNVgTAWf52sWYzAuJak2IRKDPTb6LsRvUiQo2AtWjWLr2Y0/UZp5F5Nc0lb7JlZ1lZsV9rwoFhKLEXHJNjuwRl4K9HOO/EC+AqAZxCLWSRbBPGK2k/iaRLJ7/ArzgBUTVd9G94R7UfoWr77thhISdtekI80ljYyZ1QQ+tW5epWpwa4e9Ltl1kvMP9DMRltc7KPBCskj5DHzGSfSF+9gjK26K0csLon4uqliD3OuwfX0yxeO+IBVJIXbtd6z5Pbs47iWog2eQztRLYEKSBe0kRwYbg+ccQ5D+wV9L2szAcnU2h8CYuX+HB5SHL1n+U/CEfIKol/x+SOrVxjbRwwZgPxsZgvMPJNL1/n8/dEb2JwsazKPZbKO4/Aql7B4ooXWvPw/j/QpBbSBxCWLWEFQtiECT9/WafhwZVJaxo8hk8MvmXId7LuPyUtxOufT+rl2zc+UzXhmy64JTmrDAkEA0V4JjSXYcdlQj+FKYtpEE/ankeATCDifYOU4DIBonlYAyCQWT0F2JQq2jUuoe1aum+ay6ql1AZjKkOhVQGIyqDUVLUfDwiJ2AjHfn8rq/qcEhpa4wxnTz8gmey4vKQK3rzYC+hMmSpDtdG3mtDHbdLVu0+njsUUXo8wg9exyNDz4GiTYKl9sdhp9ejWLR09Law/JaVBE03Y7yFVAYjwopN19FHRsrmjz3hyfr6iAi1sqU6FGP8lxJk/ovlt3yKk64KKO7H3+wI02FGzEtBIkvsN5vmjOpLVZGR8mdTgTZscieqp6VU6WJ+Dqhd6un410wkcbXWrZ2e5PO1oTmIMaj1EHYtyiATk9y9FXkgAPUSkk87mjweZEFMUlBdg8k9F9l3cQk81Co2bgZgc9/My3rdon9z7zM5pOnbZJuXEZZjwqpNx2mmQGkktX7DSkxcU7It/8hJT/8Wl/QeSVHsSH9RB0eYB6mVqQiotReLoGyZGnds2jRYS3fMO1qE02xJ3bo/meFbncHqOoJNO4tkwxl0jYqgZv94Uepk+Td9C2lu6cfPvojy9qTs4FQQ5RPhgQjl7SF+to1s0wBLb3zGyL2mgyPMg9PMxIuGVSUji6t3zntuvR/ipL+3HyOCBqrv9JulKbZEIs7CdHCYchQKScrIJWuOJdd0G8Y7htpwhJjpjxURCagORviZ4/Hyd7F07VOTe+uC0/FTed50UzBb+BJRiIOMBGFoPwOcwXxkMsE/qngiRHrboQvijL49LqnFdStxcJgGpFb7m1/eTKa6Bj9zDNXhKHUTz5ASMT7V4Yhs67PReA2XbFzE5i3hTLShcxamw/4gTS8c1jhoMa+r3THvn6SdiB/hq47fIkzJMn74q09pjnz9uudLPo4TYnYz7eAwxejoSyJig+EvkW15IdXhcHxkqQoaAXH6bwViVCNUG3cvi/GpDkbkWk/B2/7FxDXb5/S8I8yDljW9qKRxkJOPR3fO65aTCSFtINzYthPdiC9CrOtpOuKoap/fJC8Iyxobl0ri4DANZJneW3atPY9866VUdkSIBOP4hhjxhEyLT5D3MBnBywhB3iPX6hPkDKqWRstlivGp7IjINXexfO1id585dXAu2dlnZaIWE9XU+jm5KvzWvGPp3/oh6SQC0I34bEHZhNKD0oPQw0iuZdo4OKrccdhzYi++zsubU8IhjUTcWjsAkZlJp7xi0yjY6rCM5F7OxHNn7icKC3qUt/W2UJPPEoeKimnYj6NqyTZ7hNVBasM3YridmD8lyiA8HHgJImeRaXohcQQ2rPcPHet7DXGoIF/g4tv6eda9Q8416wjz4CRNQdRCWFEbtMj748q81+i3KHL61tslafSboJgqh12aBw/e+ZQj8l64XET/0QRmbm1IY+PI0qHYo1CEZi1RUQupHGmas5cULBivu15R1b0IcP1vHmIrADQ3R1QTyh55rogmaSYTSC3Zt5vSJn1L7cwQQweGYjGma93bybYeS2VHjIjXyA8Ao2SbDGHlm2jm/aw8+7d7eeM6CoUP8dBLLsSYTxHkn0FYimGMZ4gYolpEbs4zsINvp1j8OIvafAaI3GZwhHlQkiYg4aDGQV5OwePW+O5590V3y3ov5p5KHP0ml8kNlcqR35TTQ2PLQjH6OqV2ltckR+iwUithjQvycUgkSimooSiPsWztD2k+9DWUtyepkQhpqbtxfqUR/MweMWmSfE+2GYa3/pJo3m/p6PX4SucQXWu/T9O88ylvm+RzBfyc2etzM02G0taHaMr8EhD6Ouz03eGp0CeWpWtbgXcSlrUx8ldFPIsXeNTK72bl4s8COzuR7IpH5wvFthikl+6bvkOcuZmg6WXUSg0QsxiisoK+g6Vrv8Tq9kFnZTrCPNiJ0wvLahEIcnISASdRA6/iRWFUK2UCPKvS7DVJ0oOkooQ7NAaMu7N02B09qVBlLqW0/aNgTyQOUwWvJyJec8PkJQbUDhJWHtijCmxCGrXhP6DmQ1zXXknuz1QIb307pce3Ac8jDg1JI/NnY8xc1DZWnEEE1FaIypt2e7uiGBFqpYeJ4w/zxTN3QMGAWOidnuks9HsUiTCcR6b5qdSGGrQuxRLkPKrDf8+qJV9g0Uaftn47akH57qsCVlzwMBfdcCbNc75LkDsxqRg0Sm6nYIjDmGzLUYSlJcD1I2N2cIR5EJOmAQjLailjAWMMvmdkjirEFuKSxqkC8sRZlQ57Q73G6Moz/whcstv/W772+3iZlxFVGrkji/GzHmHlR6xafNpY4jvSSeM6/gws22kSoixfewtB7mxqJTvmcxWLnzFE1QdZee7JYz6X6a6p2p9+v1ycuKYbMi5j8nM9ytuvZdWSL3BFb57hX0bQZii07Zv8+lEuuSbHdRdto2vtW7DmHoznpSUNZdRpQBVr3wRcD22uLKYjzCcVcRoAq6iNRv4uAp5LGHFoCKpCZ59JiSwhLp1IFZo093BvBb/31vB61+fW+0LqFDehrtdRHU//0Ak9J/3Nf9P7NOAVRBVJ72PHIPysR2Xwf1m15DKAtKtKYxgggstgJfexdM0/kG3+AmF5jAOOGsKqAC+ne/3hFOUvieXtCrQ7wnwykSe4ej0OEz15JTl+ieIXikUFDac0RXdvhLXrc6fNipaZIYL+toR0guzLCZqaGwrEoV6GJH6EZeveC2THfYE7suslR61cxUgW1dGP2Ta2BLm5xJUXAnfTsVDoc9vAEaaDg8NEWXR4AsGqT97gkTZgABB7KsZL2m+NNX8ihrACfu61+NnXJtM3kZad6WeqQ4xOliPLZPECQ1h5HnA3C+a7o7YjTAcHh4ljvAXZFZQksbKesvLkYsz6/eVCbNxYH9HU4COqWaLq5Czh5HnjjFWQZzg5d4Tp4OAwo9yqklo2+VQRP9ksTdnZQkuOxkag47giEUyaVzNTo61boocCsHmLSyuZIFzagYODw4SZ80n6u5P/ZFqawR6aXEPqLHZzptavaLOTWUeYDg4ODjPOl7R6OdQkuavuVtARpoODg4PDPmCtxwFxrZV6AlSG3KI5wnRwcHCYOYxYk2EIWp14x9qZpfckdchhMnBBPw4ODg4TQWlbmeycQcTMHafBN9Ol6Sx+1qc6+EsAl1biCNPBwcFhJk1M4WtvKdG17jHEPJ2dSZVjfFQg2zqDetcm8UilbT/EZq8BFYrTXDzCEaaDg4ODQ91GTJpGS4yuexDjv2CXlmb7/owYwcbDVAevAxslN2LTUZjIJOStUkZ4FGM2Y/70n6y8PHTdShxhOjg4OMws6m5NjX+MmPMaqvSTlMbzqcYf4vrzH9sPPO/I0hGmg4ODwwyjnvzv+d8hqtJAIQJBbUS2NYsdfDOLNn6ZY/E5dhKtth7+pZA92vDnIeXIFqH6f5ajjte9jrWvwzqydITp4ODgMPPo67ApDf6QqPp/+JmjiUPLaJkHiiGqgfC3tPFlNm8JKU6UyFSSgrZP+OxEitM6OMJ0cJhGiJqkNBpmpKXUpCyWvp19Ix0OCAGgo9djxeISXevW4GffSVyzo1qaIoa4GpNteQ4PbfsX+jrfT/ePAq7SqIE70J2EuGijx4AklunyDZfjZy4mrPwnK8/5cBp65FyvjjAdHGYTvFJKcI7knqxY0FEnpRWE5beBMWMbd+IRlmL8pn9i2bqHWHHyl1gBFDb60G+TQvZ7kp0KHX2GR+cLA+0RA+0Rb76zmabwCwRNS4lrkJ/7KpbfsgBZ/NdJQBLWWZqOMB0c9jPUEFdBbQ9d67pQ9cdhHezl69QS5IWoejsrF3/ZNfc9gFAvwL7y3E0sXbOeXOv5VIdiZIy+mGo9oqolk/si3bceR7X2YYrt29IvTZpTb14oLOhQipIQaF96MLvie3mGH78Aah/Az59IdTAChKgak5vTSdfaR1m55B0s2ugz0B65RXKE6eCwHyGCjcDPvQjjvWjy/EtimMS1s+i6bR0rz/wjhYKh6EjzALIyBZV/Jqqcg/EMasfIyRTAGmoVS67lCtSez7J1q/DNeiotD1Bsr+z29rfcfBj5zPNRzmDoL+cT5J9NHEFtKAap63CP8o6QXOvfsXTNw6xu/xiFjT5FR5qOMB0c9i9pQlixk7Isd6VMVUEQbNl1kzhQrcxrlmxm6c1Xkj/kvVS2R4jxx5QhwVAdjPEyzyDT9GGqQx/G3/5butb9H6pbEMkBRwLHYrzD8DIQVaFWipN2YntYsqI+teGIbPNHWXbzQxTbr0vcs+5u3BGmg8P+NTSnqg6zJs2AVbHGWZUHIvo6EtKce2QPOx49i6BpIWF5bNdsIkgeUWiJahYRHz/zTIz/zCR2SMFasCGEVSWsxiAGwdu7/SqCtR5h1eLnV7F87UNcveRuR5pTB1d83cHBwWFypydlQYdy5cvLIBehcQkvEFQbOwAJBkldq1FoCcsxteGYWikmLFtslByqRPyk+fSoBzlBY8V4HsqVFDb6IykwDo4wHRwcHPY76q7ZVef+lLB6McYziKFh0tyVPMEbeYkYxi4htBdLM4pROYIdW4Ik6lZdwXVHmA4ODg6zBH2dMYsKPqvPW0utfBl+xmA8Azpz7lBVBbVkmj2E1VzZWU7yhV1epiNMBwcHh9mEgWJEYaPP6vOupVr6a4xXwc95M9TSK8YYIdviU976KVae+34KBUNfp3PJOsJ0cHBwmIUotkcs2uhzzfm9xGE7ah8gN8dPrL9pKHShqqhGBDkP8apUS3/LyiXv2yU9yVmXUwQXJevgMCswisvMxhOpD6pY4+6t9jYv42QjwmD88ziQkubK9nu45JqXkT38E/iZyzG+R62UpiTpBO4nd19hUIvn+wRNPmH5PuLq21h1/g/oUI+ijMeyTEruHbGlsfl5kkbdOsLcqa+ccnly6k+TnPo1aqT/77Qo8CQP02Ds3j0+vgkBScfYgEJTCwRYymO+dfPCnT9aJEY1akCHx4jxdlpLk2gbpZQR0/hzEY+dCzW+g4TRtMiAxmM+S8Um3y8+c6rhhH7bQHtER6/HdZ3bgL9l+fpvoPZDBLnTMB6EZbA2GYuS5OKOKoSqqGi6vgY/Y/CzhrDyCNHwZ9la/hx9nTUWFXz6JBr3SoyrMtCTs1XYk54wOzYlG65qGfTBGkm6rzo8SWDYhp/zQLzJHPYnZfAYHyrbI3xvx+6n+I5EaWfjn1CpPErToUcQVUbvJKUWgrzH8GO/IGr6SUrG+7Y0Ht2U/mi5hSB3Omq9sTtVqYefg1r5mwAs6vEYGG+bqo76PzbgBReSbfbGPLCo9cg0QVzpTb6i1zRk6SzYlGxpa+8nrNTIz81gozG4yXpkmmFoy+18/rxtFNQgMv67wL7OeKQW7NWLB4DXsOzW0/HibpDXk2ttQRXiWtJT2qpFUFDdeSZAUATjGXxf8DIGG0Mc/pqwfB1xfDWrzn0EgIIaiuMiSwGF7hU+euQViP8S4rBO3nt4QBS8rCWqrGWVfP3JSJrOwiwmhJmNDn0w8h77rR9wXBii4u53D270dVpQodr/faLHP0WQeQ5RTZlp1hQsXmCw9LLygod3L4uXpgN8WR6ja80Z1IbfiQ0PxVr2Pk5VTAA2/C2euZKvnTHM9WMotYFilJLql1i6NsYPTieOZJ/zYEQRE1IZvp3VS65JPivjD2jpkzj97HV0rfEx2TegkY/dl6dHFCMxtcq3ePqPr04/25hbsFi0ybxe+HuWrz2LqLoUG+aJVfaebpHOY/z4fXjmM4DU9cRE3Vf0EScFBDosq+Qu4C661x9DWHkdak9H9STQpxNks4iXTH9azyJ5RRCHw8Txb7Gl74LeCvwnKxaX0sODR1+nHacblpHOJ3btO2iZ/0mqQ+Bn9324AwgO6aBrnbJSvkFvr0fnk8c9+6QnTAHVjfjS/utqdOch19Jk/oWtGmEcYR7kUBC4jgrwvtlzgNuzhqwkbsSV590PLB23eDdSvq/+ntV8BfjK+J4wifNF/bkrz1sFrBrnPE1kXoWrl9wN3D0hTTH5Q1o8Qm5JYfU/ACuBlXT0Zji86elEtaOxHInYeaABSIiarah9GN/8jhU//ONuxfkXbfQZaIvpk4mR1s47yzPSYgnRSBGFJ7KloBqRbQ2ANwLfoO/JpTSchQnQRqwFDGXv8xHxRUGrOTEc0hpCIPvpYsthBpH0tZwNVm+8T3IvqKG/3zQUlLFgviStosZZwH288zBVgR8z99ykhyUd0Iimf3S+MNAWT7nbsT7+QsHQ35asaV9nDXgwfY1lFfrJZzrsSF/MiaLurkYCVOvXEt7oByQ1acTvkw6OMBMZUFVE5LHByh2HnS81e2swV46LBxVriZkNYdmCoBgRR+AzSFSzB4mrzR6U8zCTz51Na10s2l2sRaFQkJEgrAXzd+7zzekhacEmpVhU17bLEeZsIE2rihF57BdDG+a/Iq/RJzB0Bs2S3+8UpYmqtGUltsQieG7FHBwOKiRk6OAIc/aIpILVuQAsbNO9kmYBI2dv+TNwqQ7MLcYVeSVqjrGh3V+3mioqhyq8AOGVQYtkwmG1LijJwcHBwRHmdJGlIQ5B9UQAOvbu3pIiVhWhDyOLtv8W+O1s+QmV2w87ISrbfwrycmlUUas26WHgxNjBwcHBEebUQUSolZUgeAH/+uMF9PT8Yl95XCIopIFAbbPEkmvDijz2AHBZ7Y65Pwny3pVRVWPUuWcdHBwcHGFOMWWiGhM0+cTRP1MsvomrfhTQq3ZfofdSxFJk1hQuVsVwH56cvP1z4R2HHO23mn8IB9Xdac4+d4aMhImN2P8HQoJ3mpOoB9q49zn2+l+c/Byo+2iWyeOT6w5TxKOyw5JtfiOf+sl/c/kLvky3CoWNPpu36M4Q6/2Enh4dLW8uvWNNiPNb2Q9Fw9VOP5CnRxHuTnMyKBQMtI0yfw2kaBTUQL+hpy1GRJ/oKE+rvSyYL9A2/gTz6fzdm9MUhboykn2NewKpKtN1+C2oQP8YY99lXfZ832yTn45eb7c0llHlZ9asw9TPY386j/3pPtrbmnb0evtrHz0Jo2RFqJUt2fyX+OzPDqVn0ycpttdmxdCKxWRj9GLoZK+bW4pYbcOXMx4ZDu885JuSl3ezQ+2Yndgd9n2KLYrdLRl8n6fdvSjbQiGZ93raRxHoXt8ENFGt+DQ1VYltlRVSom+PThX1yi8zempOFW9fh33C7+5e30ScyRFFGWwtJO+XnzjuXT4/06d9VaGt32OgPaIoaex4iit68+wgT9SUIWsjhrfXuOEtO56QjrOzaICdNfKTHJR3zvGb72ymqZofkZ9cqcKVUt5DfiS5UtoP6zDV6Oj10pSZnfMowCUbczQN5ymVsmRzEX5rha+0Dz3hGq1evGEG5uHJmFYiWCtEFUu29cPMLXXw6Z9dC3oPRv+MMRFhdWYDaYKsUg4NvpT4R3mUTnYmNu/lJNkPqCLRHeZ7WN6NC/yZhMtHlEvWHEs+/0ZsOBdrScuuKcaA+FXC6jdYLQ+M/H3XjV5MN+/lt5wC5kKsfTnWHo0yhyATUIvKiAyzbN0WPPNzVO5B5DusOOt/d6v8kvQs1GlXTH0SjyjeZRtORGQRRl9GHC8k1iOQajMBOTBVYh1i2ZpH8YJNKN/Hi/r5d3lg5PPJuKc/r1FV6OwzKakkRWAvv+P5aPRqlJOx0YkMyhGgzQRRHkuN/JwyXesfA/6A4ceI9x3C8B5WLxncedDpYXLEmcrPst5nEbR2YqPWJ8iPyZSoDX6V1fL7J5BmXX6KRehefypiLiSOT4Xq04m1dUR+wuwQXWsfxfg/B70Xa7/NynM37SE/B155uvq462N/24ZnUNNFEL8ClefC9qOo0UqQyWM1pLp9mOXrtoD3AHAvykZWnn3/SF7qooLPQHFa8+afnHmYSXcAQ3lHTCb/PLKZz1ArQ1SrEluL+DKjNx+hVQJPgCqf3bQZla/xu9+tonhmNS2mvNumbtuCiqC12+0WwvS3OMqcgLIDLl1zNIH/XYKmpyYFuXd7D3gBxOFbeduGFyA8MqL06pt9Wd/z8fIfReVsgjzYEGycFEFXBSPNiDkc8Z6B8U4GeQvhsNJ9yw+A66hG3+C687aNdkCaEldXsUfpkzixfr2/RrgUG7+coNlPCsDHoLuMW6QZMYci3jHpuC8hHK6xfMP3EL0W/tTHis4SqkJPj0ybi7Cj10uJMubSNUeTzbwZG/81NnwBmaY0VWwvY0fmYbynYrznId5ZxDXw9P/o3rABtddQXPxDKE78sFIoGIooy9Y9C+N9j6BpPjbeu/xElaUsu+MkVrH1CfKzdO2L8IKPIbwePwcmSoqw12vI1uXHeMci3imIXEKtFLN8wz2oXkdl69f5WucwqFCYxnWYFi9HSpTLb1mMkS5CbSeTa0FMsqY22nVNATkE4z0N478Qkb+mVoLlG+5D5OuEw9dzTeeW6T5APLndeCIeYdlS3hER1RTjZTEmj3g5zEy+TB4xOYw3Fz9zKk0tX+a4Y7/DZ396HEWxI26/J6yeWNcadqIk0u+BKL50kGt9KqXHK1R2RLu/BiOGH6+Qaz2CWnQRiFLo91i00U/I8uZL8Fu+j587mzhUKjsiwkpMFFpspGis2EiJQktUiakNRdQGk2LnJvNSgqavkM3cT/f6t9PR4VEs2ikv09fRm3wvonStW4aa+/GzqzHBq1H1qQ1G1IYiojHHHaNk8DNt+Plr0af9mK5b/gYRnZZxo0JBE6XafdNRdN/2aTLZn+DnPoaXeQFqoTLK2ONQCSuWWilO18UicjRB/q0g99K9YQ3dN704Vay6zz22T7SZ5K5R30iuZT6lrXuXn9LjFXJzjkUqnSPyU1foXeu6CbLfI8i8nihUKoOp/ERPXIcwXYfqYIxaDz94Bdn8CvKH/Q/dG7phutZhGg5AiCb755YzWX7r9/Cz6/Cy5wAtyXoNRoTlvaxpZJM1HU7eoxY8/ySC3GfINP2E7g3/yOs/n6WvM56ueXD3XkkvIx8RQWPdr684Umoly9C2kEz+Jah3F//66yN2upAcpmH956KxpjKwt1dAXFNULwTg4V8KA+0Rl63pJtN6LTZqojoUJRmx4gNecp9cbzchkt4veyB+8kIJy5bKYAQ8g6D5S8y7bIC/6Xs+fZ0xizZOjednUSEh9ktvfDbdt32LTPNKjHk2taGYsJy6rkbGNNa4vaSZcjmmNhRjzAlk8tfRveE2LrvxuGTchakZd6GQkFFRLF3rLkXy9xHk3o3G81JSSe+5Rhu7CCLJ+JN1NMSRTRWt4OeWILl7WL7hE7z+89kJk42V5lHlBwmIQwX+GoDNW5JDwLI17ybbchU2zFIdjschP14iP5WYylCMkWcT5K+i+7b/5C3fOHFK5We6XLBvue4wujdcSyZzK75/KrVScrBJ5tEbdR52XVOAsJKuKUeRafoUxzzreyxf8/LpIk2nhJ/gq92PLxEBMQgBpR01muYcB8OfoVi0uzX6dZjKNbdjtNwwhBUw/il03/o8VlwectnNbyCbv4qoEmNju4/uDqM+FBGDiD+ixD3/FeRb/ptla/6agfZo0uST3OdELF27mGzTPfjB6VSHIqLQpkp310bMjY87UdweUWipDsX4uTeQabqXy24+m4FiNGllXVCTklee5bdcQ6b5GtQeRWVHhMY6Qn4TWmrMyFpVh2LiKCDb9D6OefYAl9747AkpWWlAfqKKgJzK0rUn0NdZ47KbziPT/Gmqw3FSJkW8Ca2DpOtQGYzwg9NoOuR7LLv5/JHG1bMJda/M0r4XkTv8+wRNlxBWYsJKPEKCE2l9s3MfKeUdEcZ/MSY7QNfat++ynlOmOx1hzl7uDihtsxjvTVz58xPo64yTEHmHqfX86VibSUBjsi0eNjydt26YR5D9KjZWbCwTVt57KvFaKcZGrWSa/4Ola97BQDGiMEHyKWxMyPKyNcvIZNeh9tDUivGnLJo6GbdHdShC9XAy+Vu4bM0yBtonMe70vv5NNxzOvKZvkW25lOpQRBxpaq3JFO6vxFIr7wjxg5eSafo2S28+NVGy2jjZqB1bfqyNyM3JInIal902n0zuGuLQolYmvR51+akOx2h8CEHTTSxbc3miL2aJpdnRm0Q2d910GkHLf+F5z6ayPUoPbd4UrWdioUeVmDjyyLZ+ia61H0s9H97e+546wjyoKBNVS67FI6qekfyp363XfiFVMURVQC6iFt2InzkcG9pJk+WeCtzGyZ1hrvULLL15KcX2iF4dn0LpUI9ie8TSmy4m17ySKLLEkZ2AFdPouH3iMHlGrnklS9dcSrF9/JamatKkeVnvobTMuZ0g/0rK28PUopRp22MiAdXhCOFIgvyddN30Mvpkit15YohqAJdgwpswmbnYUKdcfuLIEtUsmeZ/Z9maiyjOAkuz7oa9bO1L8fLrUXtIYlWa6SJzD7VQHYrIzX0/y9Z+NDl89k/JPDgFfEBQpznWTcJ+PboYogoY7yT87GlUhzR1a041+RisNYTlGD93NUtvfDWd41De9bSRS9e8nKBpNVHNopbxKWbVpNfhOPodihg0FqKqxc+tYuma14zPLZimjRT6PSR7I5nmk6kMhogEM+TN8YlqMdCKya3jsg3JnexUxQ0IhqgMnv9S/OBV1KZRflRJ1iF7DZetfel+9UwVNMkT7brt6QT+GpBm4jAe5+FtIvIooB6VHRG51g+w9Oa/narDgyNMB4cGtV4SsViziJm++2QRGSE5k72et26Yx4JNOqbrWFVYsElZdseh+P43gExy59fwHk9SN8QTvEAQT1LyjNAGykOKCDYGUYMf3ED3TUfRt6mx6NMOkkCYP279LLk57VR2TJQsdWc+xgQstKga42eOwLPf5B23ZZO4AZUpk584TCJep1V+MKhVxGTwzddYurZ15FAy0xtmc1+S6kLtevzcUUTVaBxkmcqj7CKPKGiEqm1kQVH1qJVjgtwXWXbzKVMRCOQI08FhHFp1nwSUnIIjIB4hGMWO/G18eX4eUSUi13wMYfgJikVLZ9/oe7WzLwmW0fJnyTYfQ1Sp3xGNZVAmJ/hMk0eQ97C2jI22YOMSXkbItfr4gUkSHRuwcKJaRJB/CrF8BRoIVqtbxcvWnEmm5R1UdkTjCqJSbELqySkD8QQxsvPv46gFXb+TzbWeTKlSTBRs31S6TWdOfsJyRLblWaAfoSh2Sn9HY96O5BD00IvfSXZOG9XBBtdVFVVLkPPINHlYDbHRFtQOIp6QbfUJciaZkzEORknmA4jng1lNR2+eBR27VaZ1hOngMKNQRTXG84VMi0+m2cPPGMRAkDXJ35q89B6u8WRqMR7VoRiT6aJ7/YtHPR2PFFFY9wqC3CVUhxq7I1K1+BnBzwphdQ1heQnCQgLvBDRaQC16FbWhInH0OzItXqrAxyIFn+pQRKZ1CUvXnjX6qT61irvXN4H5AjauKzNpcOpjPN+Qa/UJ8gZshNpBVGsEWTMust9z3r3su1m27vnTmdM3Ij9ojBcI2b3IT7Y1kR8mIj/DMX7wNpbe9Fz6OmcuR7NQSFyxl9/yNMQUCUsWMWNzjVpFPCHTbIhq3yaqvgWJn0vgnYDV5xBHL6E2/A/E4f+QafaSg9GY3oTk8JCfu5A52XdRFMuijROeB98pPAeHCes6i/EM2SaPWukRwtLtIN9Bo19hvGHiWitx7Tkgr0M5i0xTllopprHIwMQ1GzQZqoMfBM7f5ztHmgbYf8H4EDdQGlmtJcgbbPxHbPhWVp67YY93bAV+D/w377jts5TLPWRyVxDVYjQ2Y0SsSqL87Efo6L2D3g67Vwpc1O9RLEZ0rf1bcnP+qnHrMlWSuVaP2vBD1Ia+iXAXxvwOwu3EfjPVyrF4ldNALibTckxyb5h6Ccac9xiCvE9c+xhwdmqVTJ/8BE0e4fCfqZVuReQ7oL9BKBGW5xDVFgKvA3kDQT4gHIf82FjJtfjY6P3AxTO2LzYvFBCLXfs+MnPmNLSuahUvI0CZqHwFVy++ai/y+CfgR3T0foFDzN9h/H+FOMDGOmpgmIihVrIYeTeX9a7kmva/7LO2ryNMB4dpQUyQ84jDYcLSJ/FqV/HvFzy6l/cNAFfRtW4hUfUjZJqXUB1usFi+eNRKFi84m+71z2HF4l88oXxevR5p99qXIpk2aiXLWO3eVFOyjH5NWDmDay58cMT6WLBJKfYohR5h80JhwXyh2L4D+Ae61v6GIP8lwspYStsjqsRkml/I3NJrEblzL+XKhIH2mDd/tRnlXUQVTYuIjEUyiniKHxjC0pVUoo9y/fmP7eWdvwbuprv3k4Te+/Gy78OGirU6dtSteNSGLV7mTJauPZmi/Gjqy61pTCbnEUU7qJU/hmEVKxb/ZS9v7Ae+zOW3vIC4+nEyzW+gNtwYaYp41EqKeOfTte6ZrDz3t9NWfnFXr0GfxCxb9xSUS6gNj51nqqp4AQjbCcPFrF7ybQpq2NwnI/KoQA9Jh5piWwzyeS67+ZdkcjeT3NePdhgyxGFEbs5h2PhvgM9Q6PcpEjnCdHCYdsvSWjLNHnG4CWsvYtW5Px0hr0c3CUcsVBZ0KJv7hEfnC0dsUVaeuwk4j671BTL5HqJyY82/1VqCloDq4JuBDyYl2XZVeB11PbWMICtJtOcoxKNq8QKDjR6jVjmTay98kEJvBjbtVB6FHtnFck3qnh7Z4vPFM79M19pjyc15D5Ud8eiRnimxIZcBdz7Ruix4DBQj8nPOIWg5mtpQA9GTqhgvscps9VJWnHtd8l0bfY5I2/P19Cg9u5H9duCf6F7/U8S/HhNrAxZyeqjI+dj4rcCykXmeGssyTu7nwvuJoou5ZsnmfcrPgvnC5i3KVef8BDiT7vWfJNP03gY9FfUc0ByVwTcD//JE+Zlqd2y/R5EIoZNsyxwqY91dpnJiPCUsdbD6gm/zjtuy0BOyIPX/F3qEnpEPWAptwu82Zrmm/XaWrX0b2ZbVVIfsGE0oDHFNEfkbFhU+n5Cuc8k6OEy/GzbIG6LKz/HC01hxwaN0XxWwojuiT/a9CQtqWNgndC4u0rW2lWzLu6k0QhJiiGuguoSO3gLF9pjkjk9HTvNv622hqucQVhjbShMwXkw4/GauvfBXABQ7G2lvl/y2lUv+ka51r8DPn0o0iqWpeEQVQXkNl6w5JCkwv4sbrK3HMlAEq29Kq2s34h5LgkFqw+9m5ZLr6P5RwFUnRYjsJPtiMXn6rhZP930+K07+Oktvfhq5uZ+iNtgI2XiEFVC7mL9fcwifl20TdePtRX48otpPke2nc83Ff2lIfjp6PeiAFfI+uta2kGl5G7WheMz0FBEhroFwbhIAxDR3Nemvk/GFY7pKkwFaMjmP6tB7WHXBXQB88czq6J8pAlQAWLXkGpatfTXZ5ksTy3sf8yFiiKqKeM/j2S98LgNy/94aWzjCdHCYQrbEeGDjIWq187nuwpQsLw/h8jH2uFhQYdFGn+1b3sfc4dMIci8iqo6uvAUhqoIxz2GOfzzw83Sja9LxgZhqcDJ+9sgk5WVUV2/iBqyV/hvJ/4yum4/HjEOBWjzwQqz9N9S+lNGCc0SEOLYEucOxlZOBu0fGm7S/srzl5sNAXk1UTfLmRo/1iQmaPKqljaxa8lkKG32KJ0esGDMKSVlBUn2o2P6vLFu3hEz+5WO6lUWEOLRkmg5nuPxKYMPI+CcjP54PNtpGdfB8vnrxX9JxjS0/fZ3xSEH6h+97F+HDi/CzCwirYxXQSIsmyPO47NZncs3ZD05vV5yipeump6O8JF1Xs891TVyxHrXhPyB6C5ff8mwiq3hxY4eS2JOUc1cTljsQ05QGAe3rgTGZJp/y4CLg/rQQjCNMB4fp4Uss2SaP0uBHue7CX+wky0YhChtJI1o/gMjtKXmMYRLWyWL4FODn9KcbfcH8+gdfhZ9JEtZHtzA9wiqIORnC36BGxqX+RTQdb0RUkbHzCdXiBYJXeRFw98h4kxSZmMA/iSB7SNpJZKz7S8FGihd/CEjclI2nWmj6fvCkiHJnA/OeHBGMJ6CvAjbsMt8TRWJdlnYU+eqbfkP3VUFCluOSH48V7SFda3swuT6kZsect4QoMlRLJwEP0s+4iaIx47L+vd5LyOTzSYF/Gf1QYmNQjgLzU6I4kYG4weQNIc1PlhhrgzHlUak7M14MwOa2cXsLXFqJg0PD1kHgUR36M8KXKRQMV3WPO2iAgfakvdfT59xNrbSZIGfGzBVU1aQ+vz4vcWemf6+TALwoLXbQEHcgkkNMBmOCcb1E0s94+YaS76Wu1uTZqUJNUCcesS/G8xNiHcuN6ecMcfV+Vpz3XVQZdwBO8n6Bp24kKv0aPzv2vIskzebhRXu4Gyd22PIyHpWh/yPwVlAoGFZMQH6K7RGo8LTaemrDD+JlvMbkxwA8P5GftunZIiPfa56P8Wkg5SORx0SmshOWR/FyiPEaSHlKIs+R4xKZGP+hwRGmg0NjCi8myIHataxeMghtBpngfVZPf1LvVcxteMHYhDGy0XnmLkQpI6Qh5tjkpN5gCbQk9U9HihaM+2Ub/92qIMwH4Ij0RF8netHjdyHW0S0zLwD1bgdReiZYF3TRRo8VJ4eouRs/0wBRI2gEKs8Y6aIy4aR3tfhZEHsjKxaXRvppTgSFfo9iZw2VOxr6HUI9E+eZexy0phb177X2+OQANw4ZmbQ8NsLNmhYykMOScoHjX0pHmA4ODbl/RFKl0w8I/f2TcF3113ffD1LLUBpSKvCUxELbtFNBXLIxh3J4enIe1w9iZ5GAibwafIaCaj4ZdzrokbxROQprGdM0FhFsBOh9k1L4bSME8j8NanJJxqeH8ru1c3b69SYoPzYG9TZOXn7q/4h/kBxIZOx12E1+pimvtL6uwpGpPMosk8fULUuGh+/z0sUcF2s6wnRwaHSvRBWw8jtAaeuZuHvuiIWJYon5E3E4tmWomliYSnPilivaEb09p5xBaEqIV2dpz9Q9xtXTUx/93MYISA02BKsPTYkFZOThhIDH0H9SN94kR2BbEuuuZyJznDRGjiqg9o+Tl5/67zAPYSNQGqmiA5DUlS3K9BBmMV1XkTkTKed7YCgBBweHxo6nGkMU1ib9TfUTvmoJGzGN7atmi3WepAls7pMRIkp4tCmtlT5W6kFa2J3a1FhIGu4Xha4WfI2m7Pti1XFavDPU6ktllu/kiK0PTujA4gjTwaExJaCYADKZpt2U/4QsnfSzxmtJgiMmEbGYqynTEfE4ZQwhMWrKADyaBvvUrTRhMAlmGsPiUVWMD9jcpOc+MVgz4/MW0niqwyi2KsaHSLJTp/jNOO7hBIRwp8E7nctOOCvFUVBEYtDKziCw8U2GI0wHh8Zg8TJg5DhQGVH+E8Gjm5LPanQ0XgZkzGjNNMpRBhPCKZgRPdk0t4yyDfFAG3W1qSbdPKbxlVyuBWTyHuj9wC7RvWkHE2V7Q8QlUg/6OXpyln19zaKnJwQ8VnQpSZaOapmhajL3xR6dsPz4WRB5Jskd5sR1byJ7gtGjk5Jy2kj7NVB2JPLD9FiA9e8VeYzx9cZOg3emWR5VDdlWD9gEQG/vuNfAEaaDQ6ObGsDGrwXRkXukiaAefi/mlESR6djPFgPCn3YSjiSVfpI0g0cwXnKCbmjXB4IfGPzM9L2ML3j+doYe+w8qwZcBGSlHNpJWog+lhDS2hSkeGE7enfjGa9mnUbrWnNTwmhsD6F+44c2D6aJNbN3rqR2i7VNk4inIyxozGNO0JNU/T4mFvi/096R8og9hTINpJYDxJOmaM53yGAieX6Ky7T9BPggImza54usODtOEJGhDzNm8/ebDOPwnW9Pk9/FuuoQ4uq8KiPUNaRWWsYJ+6pbOb3YjjEU9HgNEwAMY75X1HI6xT/PxJdj4dygeKlPvzvWMoPEQJvcnVp718G5uwd1H8osGpywpD4g9k47e96f5kON0p6nQh+Udt2Up115DVB173kVSV7D5NYhOqgC7pKX2kPNYuvZ9HN0/zMBESu2pMEDMJRtz2O1nNPQ7NLUwDb+e1IGjkYPgQBGEzQ0eIixBzhBV/x+E38GKD9NQus8zAn6JQB/lK2f9fuTvxaIjTAeH6YEIcRSTaz2U8va/p1j8EA8/NYBx3tcs2ugxIBHxmteTaTo+6S4ypuJOAo7QpMh7/xMU1L2gyxoIko/JNHvUhnew8rzvzMi0FQomcWPuQgz1aFXlvrTO6Rj1UDGEFUumaSGtw6+hWPwWiwo+A8XGA2gW9XsMtEdU1p9N0PwMwlLcQFeXxLKtp7NMimhEsGFMtvVIStvfTrH4CbqfGrBinPJTSHN4M2uXEDQfQ62B3wEmiabVn+w2/1ONkTxM+RFRlQbGZfEyhrDis2qG5BGV9AAxoTlwhOng0LiVYKiWLH7uPVyy5mZWnHf/+MrjFQxHbFE6ejOI+VjSM3LMjZu0R6qWakS5exOi7LcMwEjlGcu3qZWisQu5p+aGjf8OWMc7bsvy56GJRW3OO86w4uRwRAkV+r3dFPGCDqUHRcSmxbJ3oq8jGXc1cz+m8ggm8xRsOHpCYVKWTzHex+no/U9AG6+JqsIRfUr3VQFWe9BYGzNQxSSKXzdOEdEYamVLkP1/XN67nqs6N6e1ZBtbg0LBQJule30TSpE40rFL/KliPEOtUkJskn+6YNP0EGZfZ7qu2++H1j/hZZ9KHI5S3zidX7iMSzZ+imxrzAODE7vu2E0ege6rArbO2102FmxSimInc4PrCNPBYTxWgsaK+Hmywc0svbGdFRf+nu4fBRx1Szyq8q73m0zqyH6JbPNzqTbQbQIsXtag5fu57vW/T+4tUzdqsWihYFi95AGWrf0hmfzLxigq7lEtWTJNr+HSG8/ki2feRkdvhr7OxlNlCgXD5oXCipNDutc/h6BlIUPX3krxssoTCKy4z3lM3Js3nLmDZevuxs9eRDWMkVH1Udpjs+XFHKJXcvWSd1IomDHdpB29HvQl89619nNkmp/bUJcPxeIHhqj6W6JDfrgb0U/KyoyUINdC3HQzF1/fTrH9YbqvCriqOxr18NTR61HcpCCW5eu/TNB0fGMt0cTiZwxh+cesvOCPMK39MJN1/VrnMMvW3YGfXUpc23d9Y8EQV2OyLcei2/6OFe2fHrc8osKifo++k0Mu6T2S1iNeRflP32bFRY9MfQ9TR5gODuPVeYaoYgnyz8TL9bN8w8WsOPl7I0qt3r9w5FQ7X6DfUkw37vJbPkOQ+1uqw42QZdrRwRdiuQlEWbTRT+8tUwJrSxSgZ1Zj/FMbqvxiY8jkV3Ppja/i2gt/RWGjD202TWjXvSqljr5E6dV/x7L1XeBfiUgL2SPu4+KbllC84I/jbplk5AbUXgyNNtQejsm0vIPuWyKK57ybeqTroo2JLjtii/LofKENKLbFIy2zutZ/kkz+70ZtAbX7b07q10a1m7iuvUKh4FOUaErkJ6xYgvwJNM/rZ9ktb2HFOT9gxeVjy09Hh8e8DV/Ez17a8O9IUnIE4cbd5GW6Yewq4urSBpqCG8KyJch+lMvW3s81S+6msNFn8xZNLdZ9y+Oj84UBiRggYunNr8PPrQZ9Gt7cP7Ls5gtYdf4Pppo0HWE6OIxb6ZlE6fnZY7HxAMtv+QJqv8TKc3+7z890rz8VzEfwc6clyq6RJHJVjOdRLZUw8h/ALu7YuhXXlrR9itZ9EzvUgx88lSjatxtMMMShJcg+hUzuv1i+/s0U2wd2s2TqhLM5bcpcFDvS1qpr3TMR75/xg8uIalDeXiPXehJNdj0XX99GkcGGXKX1dlWy4m5qR2wiyC9osGtJSprNV7D8llOwtsiqxXczsAeZ1X9R1y2vwlDEz7c3Pu8oYgy14SpxtGLE0p/KQ1dCEsdD/B261n8Ow5dZsfgP+/zM8vWLQD6Kn3vF+OVneJCw9k0AetrifVv+U4C+zjhZ//O+x7I13ybT/Oqka8m+xlsvSiEZMsFaum65nGL7DXuVx36grc3uJo/d6w8H712ovh/BUNoWkml6OrCBS298Bdde+KupJE1HmA4OE7Y0qxYRn2zLP1ArLafrlv+E+DtYHkCkhtE8Kici5nSU1+BnaMgduFNtx2SbfCqDvaxY8ofELbfnxk+tztVLBula+3H8/JeIdsSjnuxFDGHV4meejvJfdN+yGvVW8Mv8/9CX3qftSspv3TCPWngq4nUi5nyCXCvVoSRSVSRDZTAk1/oi0F4KnJmkvTQQAdqBYcXlIcvWfAwvuCF1JzeS6paQZpB7BdZ+i2Xr74e1/QgPoPIYwhzUnoCYV2PkpXgZxkGWoBqTa/GpDH5jROEWp9a1N7IGYjJkm99LtXQ5XRu+BfH3sPorRGoITcBCkDMQ79V4/kTl51qu6/wzHb1ekrg/zajn2UIBtRsbmAshDhXjN+NnvkbX+k7EfJFa839zXXtlN3kcALrXN2HlJETOR+0byeSOpDoEUWQxJiAsRwT5+WSyG7is95Vc07llqnqAOsI8kGEQNwn7mTRBqQ5axGslk1uCmCXYXXRS0nAawjJj9gfcU90ZzxCWK8TRx0BlpHj5nhhojymoYXPf1czZsZwg/wKiMRskm6ThtBiC5i7CchfH7/g5z1q7GeT3iEZYDsXIswjjBQT5IzB+8jv2vDsTCajsiMjNPYOH1q+kr3Np4podI6qmT+rj/ibsuIJM88mjWyN7kmY5Ie0g90K84IVJPmsaKiwCcQRRWbGxHQdZKl4g1MpDZP2eZN57dPrkR5XKoMV4cwlyHYh07F1+SkocamOBXSPWpaE2PIxnPj2tv2NvVmZHr8eq8/pZevM3yc/9ayqDESL+KF4bwcaKrSjZpsXE0WKCwQdZtu5nwG8RraK0gPwVVk/E84/Bz0JYgcpgjIgZ8U6I+ITliGzz8cDNXLLxdIrt1YYOcY4wD0J0JIpILdtixRrB2FQa3OTMPG2CeGis1Er1CjeymwJOasV6jKeWp9qY3Byf0rbPNGDlKJv7DH2dNZavX47G30vyNuOxIk8Twq8NWRAPP3MiQXDizsYRmijrOCSxhiqaWIB7Udpi/MTSnHMZy9Y8RFH+uSFX2Oa+pE1Z99q3YqN7Ghr37uOHsGJTd266HrvOu4xv3iEikw+oDP4zXzn398m8F+NplR+py8/wKPIjHjKO/a0kVnJp28dYfd4fZuB37I4Fm5Io5t9l3kWt1I4XzE8iZkf1fCSCVyvFqBr8zHF4wXFplatEHtUm8hjVlKiWHK72dogQ8akOReTmvpJ42/UsKryJth6buqMnTJqu0s+BCVVFMvHWX1nL77ysWKa9QKTDWNo7Uczi70KOXnqq9sa5ujGZZp/Kjp8QH/KRhHg6xr4T7Oj1uHrxD4lq7yXb4kNDQSoyQoBhzVIbjqkMRlR2RFQHI8JynFg2daIcjYDxqQ3FeMEHWXrTc5P7rDE6sdTHvWLJj6jVPki2xUPHGVyTWBd+agBMYt5tRK41oLzjdlae+7mU8O0BJz+MyM8PGAw/TUHN5CN8x4li0bJ5oXDd2X/G1i7BeILxtMHqPx4iQhRaaqWd8lgZjKiVYqLQIiKI+KM2Lhg5xM29kBNOOpti0bKoMKkC9I4wD0zVrPTjyZlUreq15DAosZuZmTquTGOxc1WLF3jE4SCxXsR17ZUkb64BV1JfZ8yijT6rllxJeftXyM0JxlUIOwkU8lJF5I8o78a7qQg2tvg5EHP4iAU59rgtHb0e1yz5BOUdN5CfG6A6swW8VSMyzT5h6ReQezOqkuYr6gElPxBjAg9bexwTX5SkaPQwWVfkhDAijxfcQVj5ezJNyR1qoyXz9pTH+uFBxsNbqhgPVJ8O7CxL6QjzSYY24kIBk80FV8Y77KagVQJrCVWdpTnthoDnG1SnQ+nFeL5BJCKudHLNks2pK63xZw20p/dHS95OZXAF+TkBEDWspCZDA6oh+bkB1cG7iQ65h0LBNGihKX0dloIanj7nUqo71iSkSTgjnhPVkEyTTxz+HsKzWfX6x+lBpiX9YlrlR2OM5yFSIyxfyIrzfzNu+ZlqDLRHLCr4rFryBco7/pFsi48Ynab988R1zbZkKG//DRLdlOQwt03KsHCEeQBbmT2AtG8Z8qxdElX0V5lDJPAMokmnvGjWvmZtO6qxJt2A6jA2fJAgZ1CNp3BzR3gZD/GqhOULWHXBHSza6E8gHD4hn45ej5WLL6c69K9kmn08X9Ap7MW4p1UMmpLljcwJF3NdeyXt7NEg4YlS7EnSZH55XyfVoW+mZD99ylVVUU3csHH4M8LyaTtJZhpq7IoBtcPY6PcEOYO1U/cMtRF+zkPMMFH1PFZfuJFFBX+qE/cnRprFhDRXn/dpKkNvw/jgZ830ySMWNCI/NyCq3gthGysueDiRRBf08+QlzSJWCxh5/Y5f682tp1q8j+DLm4JA5s5Uq9jxHs/mepD1oRYRA0bkgAlUSsIvVQXxLyCqXUe25flUByPETHwf1ckg1+oTVX9PrfJmrrngv5MCBe0TVCii9KlNiwi8l65bfobxPke2ZR7VIZtWlJm8hCRWa0yQ81GF6tBHuHrxP6f/cwIRiUULPcJAT8yAvJGudQ/gZT6ECISVCMSMzx03iptOifF8nyDvUyvdzPCOLr5+8dbpqA4z8syk+afF1/OIql8n2/wcasOTkx+IURVyc3zCym+IqxclCfvq0SfR9CmfcVr+A8Uocc+2/xtdNz2Al1tBbs5fUR1MLOOdkT1TsK6Bj581VIe/Svnxt/G1vxlOWuKJSytxpJmS5vmDjwFv1bsP/UhUiV/mY54RRtqMmT0u2sBDt+2QbC2k85BWOWGwpMSWWGRW0vveOVPIY+wfqcVn49X6ybYeR3UoBPzG7/o0KXGmKgR5gwjUyt+kVnpXki83FcpOlGJaqmzlOV/lb77xXbJzPkWQOx8xUCslZDduEkrHjoIXeAR5n7D8MzS8gquX3L3XYuvjHTcqyfecW2D52u8gwWfIzXk+UQXiWpxGTBrG1QWaesCJxXg+2WafqLyF2nAPVy/+CkB6wJhGi8wCmsc2P0i8/SxM0E+29eiJyQ8WRcg0eahCrfxVZPu7WXXxXxLSH+fvENWG3faqdhzpUbuQZuqeXXnBf7Gs9xTU/gvG78bP+tSGSS1OMxItO+519X2yeZ+w8hC18gdYec5Xk3WdunKAjjAPFtJUhD6MvPbxh4CbZvN4f/al+Z8aLofvNob3NOWkZbCcWFlyIFwRKDFEc7n2/N/Qdf0i7KE3kJ/7amrDYKNEmeseGT7103g9RUA8jyDnJSHy0Q9Q+1GuPmc9wISU3WioR6F+tfM3wAVcfuvp2Og9eMHrCHI+UTUJ00djFB1R2qr1ZsB7jN14qesPourvCctfoProV7jussrO1JfJlpLZheyvXnI3r//8KRx93N8i8g4yLX+FWoiqSerNzrQd0F0nXXcWbJc0EjjICV5gqJV2EFWupbrj01z7pv8bIfnpcMPuTX6i6iFcc+GDvLl3EU0t15Of+wpqwxBHUdKZZiz58RP5sTFE4bch/gRXL759p/yMw0LubzNQtKhsIcgJYVlHPYeoKkHeIyz9BRh/B5eBYpTcsXc+Dryd7vWriKrvwXgXEOQzScpItW45jy2PsHNdw8pj1CqrKVc+zdcueHQkF3gK19UR5sFCmsmmirWA6W/DtM3msbZvGQKK37+ypRdrPtKUMedbhWqokSrerHfTRpko7RLxRxYVXsMJJ70H8d5JpuWoxJCIk3yxkR9swJjkvzaGsLKVKPwvsNew4uzbAKWgJu3uMfUWTr1cGUDxrLuAu+i+/VSqwxch5nTEnEAm7yVkn6YC1scvZudLY6iVy8S176PmBmT4JlZ0bp+Qoh4P2fd1VoHPs3TtaiifD3IRal9J0NSUNCq2YO0ecy7pvHsJeVbLlrj2U2zYR1y9gasv/P3IuKeE5MfjatEoIenO33LSVe28+Gnvxcg7yLU8BW1AfqLq40TVu0Gv4eqz79g5/x123Iettrak1KLyRWrDizD+kaNeOxvxKG/7CZH5eOJ277ETWtd6PdgVi38MXETXuoXUKm+E+BxEnkvQ5I3I3BPkUerxBBCWIqLa/Wj0TajewNUXPLxzXad+LznCPAitTYqzO6hGQfoLeKdeMfRz4IIfXHnIYi/Qj85pkucOlQ8QN62IJgW5ixEDfIK33Hw1WXsWxrwWG58I9pC6wwgx21H7Z0R+BuYHmPAeVize2Vi5vrmnU2fXXVIdvR69HRaR7wPfp7DR55Hy8wgrL8HaBWCPQ+Uw0KbUQhsGHgHza0R/DPyQFWf/drexT0RRj0u5InT0GlYvGQSuA65j6YZnUCudgsjJKAsQjkTt3J3J/aaE2i14wQPA/+Bn7uHfz/jZbuNO5mH/BMUUizaRn8tD7uOjXHbbCuLKYgynYe3xO+VHLMJ2VP+EsBlrfkCLfp8vnPNIupsS4pnoYaVufa0697ss612IND0TIiDY440hWBGyLTV+0Ptz7lsRAjJxXSNKHzvzdIuyCfhn4J9564YTsZWTCePnI3ocKvMRWlIPQgnRx8D7NchPUXMvq87++UzJoyNMh5nnGlCKRIUCZuFm5JQrtq3/UeGou0uHDb/LM/K+5pzM2XFguGntiDK//vzHgK+mL+jozQAw7zjdrU9fHUlJOKGv085oJGNfZ4ykz+/vN2kvxv9JXw2eeFTo7DPTSpR7nrF2tUoWbFKKZ/8e+D3QN/Ku7h8FbH1Q0t+59xZRizb6tKXdP2QWyc81Z24BVqWvXeRnq+613+pIuziJRwqRTwaJxfs48HjDMiBTkNtZJ+xCwdDfZhhoj/i3s38O/Hxc37Noo09/WzzdB6DJE6ZIvFspLYcpVBMqiQsi3SAPtx5Upe+K6em0txfv5M6HS8DHvveZOb3Ah/MZeRNApTbr3bQ7lfmifo8j0rZEuyvsRCnWWzclls3+9QIkiipR2AUV6E8OJiMdSoo7FdnmhTIy9gWb0qbQ+6NQRmqV7G1cfZ32CQeT+qGgDUbalw20R7sVlp8t8qMqtO1LfuoHhd3kJ57izZhU1yyMss829wkLOpSi6JSQ5ROeX0zlsSD0t5ndO+bsRR77Sbr3FIuWgfZoJjTE5AgzjgT1PMKokoYGHyDRjgcMImpVCCPSTWXZOl1h7/sPnZ3EdTfty9+949fART/83LyviRd/rLXJvGC4osTxHm5aQY1gFbYA9C3c34QqulufSlR2V/S7rNnson5N+2DafSuyWXna2su4dpvznYeCgQNgEyQEtBf5kd0PCtMqP2mw1X6Xx6JCce/rtue6z/DaToww6z34/nDX9UQPPwNkKcbLElUrqRfNFQGfGtlJcofEvIXlGx7jLdd/jr40p4geZiSqb6b0xa5u2oXISzq33nbbO/jPw589951GeH9zk8zbUVYkVSqq2IyHTyy3AczfNNssUHHuFjfn7rccZPAntZhf5k/A21i+5muo/xGC5vaks0HFYoxxbtqpoBELwuFkmj+CyEVcfkuB4jk3QnHnBfdBtLl2ddOe2UkVtv/rPV+Ye2O5pj2+4S3NOfGtQjaAv2zXbx3mb/96oYBpL7paug4ODtOLSQZUqCS5Uud9jxXnnEZcezNqf01+jknLQEWOMSfnnUj+EyuVHTHGLMBk+1i+4Va61784cfOJjgQAHETo7CQGZGMB/2Xv3P7bk9+x/RIb8+JKzf6/KNIv7xjUy1uftv2c4/+eak8P6uTMwcFhllqYu1ia9dDgJIfsBrp7NxDqu8FcQS7fQrVewWGqylo9KS1NQfAIq4kLNtt8JlH1dLpv/Tfi7R9jVecjaZUSe5D9cG1P3bQ9gFyx/X7g/r3MjiNLBweH2W5hpihKUp+yo9djRed2Vpz9IeLwZMLqDRgvJNfq49cr9GuUtrdxSm78vJl0Fa+VYmwcEOTeiTf3x3StW5aQpR6Ud8fFIrZeAnBjAb/+Utcw28HB4cCxMPfArrlSq5c8ALyZZes+hZYvQfQCMvlnYHxDXIOoXo5rz/JHTgc2Qp0IMZXBGOM9lWzLSrrWHs/2vg+woKCzNrJxsj86ud/c37/NHfQcHBxhTplaS920I5GcPwXezdK1PRC3EVXPRnklcDyZJh/x0nJc9dJWSVMIp5fG5kzAG5m37Jz3Mnfw3ykWfzuVxYafJEgKkesoHpd63pmIIfLcqc6hvg3NuOQHIIydcnOEuQeSRNSdFRxWtw8CtwC30NHrMS/3bGql5wPPB/MsND4aMS1gAxdS3bCeF8RUgUeIh9dinv7HpEmqOLIcC5u31GXsLqJagUxTljjat4NDLWRboLzt9xw695FkntEZrUHqMPvkx/h3Y+P3kclnieMx5KcVylt/xY7aXxL5MW6fHohmyowp946+5AQ2WuJ9oWDo6XGE2Qh6esRZkpOUSURZtu58/OA92PhIbMwT20apYoxigj8TVt/P6iXfdla8w4j8dN3ciZe/Ahs9Zd/y4yvGf4i4+l5WnnvPQRqk5whz2p5bKMgTSm45BTQx7KxL6nIRJ6r0AC7ZmGNOed+HtS+eWXXz5TAx+XkWfPF4Jz8O00Li7tX4y2Gy6Oj1GoswVhnpruDgMF750bQxtoOzMB0cDg5rYdTt4q4KHJz8ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4HCj4//UwDiPK0kTKAAAAAElFTkSuQmCC">
   <h1>Phiếu điều tra phổ cập giáo dục mầm non</h1>
-  <p>Nhằm cập nhật thông tin phục vụ công tác điều tra phổ cập giáo dục theo quy định, Nhà trường kính nhờ Ba Mẹ dành chút thời gian điền đầy đủ thông tin bên dưới. Nhà trường xin cam kết các thông tin Ba Mẹ cung cấp sẽ được bảo mật và chỉ sử dụng phục vụ công tác điều tra phổ cập giáo dục. Rất mong nhận được sự phối hợp của Ba Mẹ để Nhà trường hoàn thành công tác..</p>
+  <p>Ba Mẹ điền khoảng 10 phút. Thông tin được bảo mật, chỉ dùng cho công tác phổ cập giáo dục mầm non và hỗ trợ học phí. Có thể dừng giữa chừng, lần sau mở lại sẽ điền tiếp.</p>
 </div></div>
 
 <div class="main">
 <ol class="rail">
   <li class="on"><b>1</b><span>Bé</span></li>
-  <li><b>2</b><span>Gia đình</span></li>
-  <li><b>3</b><span>Anh chị em, chủ hộ</span></li>
-  <li><b>4</b><span>Kiểm tra, gửi</span></li>
+  <li><b>2</b><span>Cư trú, học tập</span></li>
+  <li><b>3</b><span>Ba mẹ</span></li>
+  <li><b>4</b><span>Anh chị em, chủ hộ</span></li>
+  <li><b>5</b><span>Kiểm tra, gửi</span></li>
 </ol>
 <div class="sv" id="sv"></div>
 <div id="banner" class="bn" hidden><span>Có bản nháp chưa gửi trên thiết bị này.</span><span><button type="button" class="ghost" id="rs">Điền tiếp</button> <button type="button" class="x" id="ds">Xóa và làm lại</button></span></div>
@@ -92,12 +93,13 @@ button:focus-visible{outline:3px solid #f2b70599;outline-offset:2px}
   <div class="step here" id="s1"></div>
   <div class="step" id="s2"></div>
   <div class="step" id="s3"></div>
-  <div class="step" id="s4">
+  <div class="step" id="s4"></div>
+  <div class="step" id="s5">
     <h2>Kiểm tra lại và gửi</h2>
     <p class="note">Ba Mẹ xem lại thông tin. Cần sửa mục nào, bấm "Sửa" ở mục đó.</p>
     <div class="rv" id="rv"></div>
     <div class="f" style="margin-top:20px">
-      <label class="opt"><input type="checkbox" name="dongy" value="Đồng ý" required><span>Tôi cam đoan thông tin trên là đúng và đồng ý cho Nhà trường sử dụng cho công tác phổ cập giáo dục.</span></label>
+      <label class="opt"><input type="checkbox" name="dongy" value="Đồng ý" required><span>Tôi cam đoan thông tin trên là đúng và đồng ý cho Nhà trường sử dụng cho công tác phổ cập giáo dục mầm non và hỗ trợ học phí.</span></label>
       <div class="msg"></div>
     </div>
     <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -122,104 +124,152 @@ button:focus-visible{outline:3px solid #f2b70599;outline-offset:2px}
 <script>
 /* ====== CẤU HÌNH: chỉnh ở đây ====== */
 const CONFIG = {
-  ENDPOINT: "https://script.google.com/macros/s/AKfycbzPIunKWQvbtOqWWKxwLpeBdbyf2qe8mx_MJyo2PVDGGxed65j0lbLKMS8PxCNEKETK/exec",            // Dán URL Web App của Apps Script (đuôi /exec). Để trống = tải file JSON để thử.
-  ADDR_API: "https://provinces.open-api.vn/api/v2", // API tỉnh/phường-xã sau sáp nhập (34 tỉnh/TP). Để "" nếu không dùng.
-  TINH: "",                // Tỉnh/TP chọn sẵn, ví dụ "Thành phố Hồ Chí Minh". Để trống nếu muốn phụ huynh tự chọn.
-  DIA_BAN: {               // Phường/xã -> danh sách khu phố/ấp. Để {} thì phụ huynh tự gõ.
-    // "Phường A": ["Khu phố 1", "Khu phố 2"],
-    // "Xã B": ["Ấp 1", "Ấp 2"]
-  }                        // Có thể bỏ trống ở đây và nhập trong Google Sheet (tab DiaBan), form tự tải về.
+  ENDPOINT: "https://script.google.com/macros/s/AKfycbx1EEFu5Kq_rNfDJKv3jtH2TlXeH1pf9tNd-YuHzridNuaUhkmguyGcduAi3JuPXSzd/exec", // URL Web App của Apps Script (đuôi /exec). Để trống = tải file JSON để thử.
+  ADDR_API: "https://provinces.open-api.vn/api/v2", // API tỉnh/phường-xã sau sáp nhập. Để "" nếu không dùng.
+  TINH: "",                // Tỉnh/TP chọn sẵn cho địa chỉ cư trú, ví dụ "Thành phố Hồ Chí Minh". Để trống nếu muốn phụ huynh tự chọn.
+  LOP: [],                 // Danh sách lớp: [["Lớp Mầm","Mẫu giáo bé"],["Lớp Chồi","Mẫu giáo nhỡ"]] = [tên thực tế, tên sổ sách]. Để [] thì phụ huynh tự gõ 2 tên.
+  DIA_BAN: {}              // Phường/xã -> danh sách khu phố/ấp. Có thể để {} và nhập trong Google Sheet (tab DiaBan), form tự tải về.
 };
 /* =================================== */
 
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
-const REL=["Chủ hộ","Vợ/Chồng","Con","Cháu","Bố/Mẹ","Anh/Chị/Em","Khác"];
+const OTH="Khác (ghi rõ)";
+const REL=["Chủ hộ","Vợ","Chồng","Con đẻ","Con nuôi","Con dâu","Con rể","Cháu nội","Cháu ngoại","Cháu (họ hàng khác)","Bố/Mẹ","Anh/Chị/Em","Ở nhờ",OTH];
 const EDU=["Chưa đi học","Tiểu học","THCS","THPT","Trung cấp/Cao đẳng","Đại học","Sau đại học"];
-const KEY="ppc_draft_v3";
+const DT=["Kinh","Hoa","Khmer","Chăm","Tày","Thái","Mường","Nùng","H'Mông","Dao","Gia Rai","Ê Đê","Ba Na","Xơ Đăng","Sán Chay","Cơ Ho","Sán Dìu","Hrê","Ra Glai","Mnông","Thổ","Xtiêng","Khơ Mú","Bru - Vân Kiều","Cơ Tu","Giáy","Tà Ôi","Mạ","Giẻ Triêng","Co","Chơ Ro","Xinh Mun","Hà Nhì","Chu Ru","Lào","La Chí","Kháng","Phù Lá","La Hủ","La Ha","Pà Thẻn","Lự","Ngái","Chứt","Lô Lô","Mảng","Cơ Lao","Bố Y","Cống","Si La","Pu Péo","Rơ Măm","Brâu","Ơ Đu","Người nước ngoài",OTH];
+const TG=["Không","Phật giáo","Công giáo","Tin lành","Cao Đài","Hòa Hảo","Hồi giáo",OTH];
+const BANK=["Vietcombank","VietinBank","BIDV","Agribank","Techcombank","MB Bank","ACB","Sacombank","VPBank","TPBank","VIB","SHB","HDBank","MSB","OCB","SeABank","Eximbank","LPBank","Nam A Bank","Bac A Bank",OTH];
+document.body.insertAdjacentHTML("beforeend",`<datalist id="dtlist">${DT.filter(x=>x!==OTH).map(x=>`<option value="${x}">`).join("")}</datalist>`);
+const KEY="ppc_draft_v4";
 const op=a=>'<option value="">Chọn…</option>'+a.map(x=>`<option>${x}</option>`).join("");
-let U=0,cur=1,ready=true;
-
+let U=0,cur=1,ready=true,lastDt="Kinh";
+const DTSEL="input[name$=_dt],input[data-k=dt]";
 
 /* ---------- Bộ dựng ô nhập ---------- */
 const at=(n,k)=>(n?` name="${n}"`:"")+(k?` data-k="${k}"`:"");
-const fld=({l,n="",k="",t="text",req=1,h="",a="",c=""})=>{const id="f"+(++U);
-  return `<div class="f ${c}"><label for="${id}"${req?' class="req"':""}>${l}</label><input id="${id}" type="${t}"${at(n,k)}${req?" required":""} ${a}>${h?`<div class="hint">${h}</div>`:""}<div class="msg"></div></div>`};
-const sel=({l,n="",k="",list,c="",req=1})=>{const id="f"+(++U);
-  return `<div class="f ${c}"><label for="${id}"${req?' class="req"':""}>${l}</label><select id="${id}"${at(n,k)}${req?" required":""}>${op(list)}</select><div class="msg"></div></div>`};
-const area=({l,n="",k="",ph="",h=""})=>{const id="f"+(++U);
-  return `<div class="f"><label for="${id}" class="req">${l}</label><textarea id="${id}"${at(n,k)} required placeholder="${ph}"></textarea><div class="hint">${h}</div><div class="msg"></div></div>`};
-const seg=(n,l,items,def="")=>`<div class="f"><div class="lbl req">${l}</div><div class="seg">${items.map(x=>{const[v,t]=x.split("|");return `<label><input type="radio" name="${n}" value="${v}"${v===def?" checked":""} required><span>${t}</span></label>`}).join("")}</div><div class="msg"></div></div>`;
+const DATE=' inputmode="numeric" maxlength="10" placeholder="ngày/tháng/năm" pattern="\\d{2}/\\d{2}/\\d{4}" data-date data-msg="Ghi đủ ngày/tháng/năm, ví dụ 25/03/2019."';
+const ICON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>';
+const HAS_SP="showPicker" in HTMLInputElement.prototype;
+const iso=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+const fld=({l,n="",k="",t="text",req=1,h="",a="",c=""})=>{const id="f"+(++U),D=t==="date";
+  const inp=`<input id="${id}" type="${D?"text":t}"${at(n,k)}${req?" required":""} ${a}${D?DATE:""}>`;
+  const box=D?`<div class="dw">${inp}<button type="button" class="cal" aria-label="Chọn ngày từ lịch">${ICON}</button><input type="date" class="dp${HAS_SP?"":" over"}" tabindex="-1" aria-label="Chọn ngày" min="1900-01-01" max="${iso(new Date())}"></div>`:inp;
+  return `<div class="f ${c}"><label for="${id}"${req?' class="req"':""}>${l}</label>${box}${h?`<div class="hint">${h}</div>`:""}<div class="msg"></div></div>`};
+const sel=({l,n="",k="",list,c="",req=1})=>{const id="f"+(++U),o=list.includes(OTH);
+  return `<div class="f ${c}"><label for="${id}"${req?' class="req"':""}>${l}</label><select id="${id}"${at(n,k)}${req?" required":""}${o?" data-other":""}>${op(list)}</select>${o?`<input type="text" class="oth" data-oth${at(n?n+"_khac":"",k?k+"_khac":"")} placeholder="Ghi rõ" hidden>`:""}<div class="msg"></div></div>`};
+const seg=(n,l,items,def="",h="")=>`<div class="f"><div class="lbl req">${l}</div><div class="seg">${items.map(x=>{const[v,t]=x.split("|");return `<label><input type="radio" name="${n}" value="${v}"${v===def?" checked":""} required><span>${t}</span></label>`}).join("")}</div>${h?`<div class="hint">${h}</div>`:""}<div class="msg"></div></div>`;
+const chk=(n,t,v="Có",x="")=>`<label class="opt"><input type="checkbox"${n?` name="${n}"`:""} value="${v}"${x}><span>${t}</span></label>`;
 const CC='inputmode="numeric" maxlength="12" pattern="\\d{12}" data-num data-cccd data-msg="Nhập đủ 12 chữ số."';
 const PH='inputmode="numeric" pattern="0\\d{9}" data-num data-ph data-msg="Nhập 10 chữ số, bắt đầu bằng 0."';
 const NAME='data-up autocomplete="off"';
-const HOC={l:"Quá trình học tập 3 năm gần nhất",ph:"2025-2026: MN ABC - Lớp Mầm",h:'Mỗi năm một dòng: năm học, tên trường, lớp. Bé ở nhà chưa đi học thì bấm nút bên cạnh. <button type="button" class="chip" data-fill="Chưa đi học">Chưa đi học</button>'};
+const dtIn=(n,k)=>{const id="f"+(++U);return `<div class="f"><label for="${id}" class="req">Dân tộc</label><input id="${id}" type="text" list="dtlist" autocomplete="off" placeholder="Gõ dân tộc, ví dụ: Kinh"${at(n,k)} required><div class="msg"></div></div>`};
+const dtTg=(n,k="")=>`<div class="row">${dtIn(n&&n+"_dt",k&&"dt")}${sel({l:"Tôn giáo",n:n&&n+"_tg",k:k&&"tg",list:TG})}</div>`;
+
+// Quá trình học tập: 3 năm học gần nhất, mỗi năm một dòng "Lớp - Trường"
+const NH=(()=>{const n=new Date(),y=n.getMonth()>=7?n.getFullYear():n.getFullYear()-1;return[0,1,2].map(i=>`${y-i}-${y-i+1}`)})();
+const hoc=p=>{const nm=(i,s)=>p?`${p}_h${i}_${s}`:"",kk=(i,s)=>p?"":`h${i}_${s}`,w=p?"Bé":"Em";
+  return `<div class="hoc" data-p="${p}"><div class="lbl req">Quá trình học tập (3 năm gần nhất)</div>
+${chk(p?p+"_h0":"",w+" chưa đi học ở trường nào","Chưa đi học",p?" data-h0":' data-h0 data-k="h0"')}
+<div class="hrows">${NH.map((y,i)=>`<div class="hrow" data-y="${y}"><div class="hy">NH ${y}</div><div class="row">${fld({l:"Lớp",n:nm(i+1,"lop"),k:kk(i+1,"lop"),req:0})}${fld({l:"Trường",n:nm(i+1,"truong"),k:kk(i+1,"truong"),req:0})}</div></div>`).join("")}</div><div class="msg"></div></div>`};
+function hocText(g){if($("[data-h0]",g).checked)return"Chưa đi học";
+  return $$(".hrow",g).map(r=>{const[l,t]=$$("input",r).map(x=>x.value.trim());return l||t?`NH ${r.dataset.y}: Lớp ${l||"…"} - Trường ${t||"…"}`:""}).filter(Boolean).join("\n")}
+
+// Địa chỉ cư trú: Tỉnh > Phường/xã > Khu phố (bắt buộc) > Số nhà
 const combo=(n,key,l,req)=>`<div class="f combo" data-c="${key}" data-req="${req}"><label class="${req?"req":""}">${l}</label><select data-cs aria-label="${l}"></select><input type="text" data-ct placeholder="Nhập ${l.toLowerCase()}" hidden><input type="hidden" name="${n}_${key}"><div class="msg"></div></div>`;
 const addr=(n,l,c="")=>`<div class="addr ${c}" data-n="${n}"><div class="lbl req">${l}</div>
 <div class="row">${combo(n,"tinh","Tỉnh / thành phố",1)}${combo(n,"px","Phường / xã",1)}</div>
-<div class="row">${combo(n,"to","Khu phố / ấp",0)}${fld({l:"Số nhà, tên đường",n:n+"_nha"})}</div></div>`;
+<div class="row">${combo(n,"to","Khu phố / ấp",1)}${fld({l:"Số nhà, tên đường",n:n+"_nha"})}</div></div>`;
+const addr2=(n,l,bv="")=>`<div class="addr" data-n="${n}" data-def="0" data-parts="${bv?"bv,px,tinh":"px,tinh"}"><div class="lbl req">${l}</div>${bv?fld({l:bv,n:n+"_bv"}):""}<div class="row">${combo(n,"tinh","Tỉnh / thành phố",1)}${combo(n,"px","Phường / xã",1)}</div></div>`;
 
-/* ---------- Bước 1: Học sinh ---------- */
+/* ---------- Bước 1: Bé ---------- */
+const lopHTML=()=>CONFIG.LOP.length
+  ?`<div class="f"><label class="req" for="lopsel">Lớp của bé (tên thực tế - tên sổ sách)</label><select id="lopsel" required><option value="">Chọn…</option>${CONFIG.LOP.map((x,i)=>`<option value="${i}">${x[0]} - ${x[1]}</option>`).join("")}</select><input type="hidden" name="lop_thuc_te"><input type="hidden" name="lop_so_sach"><div class="msg"></div></div>`
+  :`<div class="row">${fld({l:"Tên lớp (tên gọi thực tế)",n:"lop_thuc_te",a:'placeholder="Ví dụ: Chồi 2"'})}${fld({l:"Tên lớp (tên gọi sổ sách)",n:"lop_so_sach",a:'placeholder="Ví dụ: Mẫu giáo nhỡ"'})}</div>`;
 $("#s1").innerHTML=`<h2>Thông tin của bé</h2><p class="note">Dấu * là bắt buộc.</p>
-${fld({l:"Lớp của bé",n:"lop",a:'placeholder="Ví dụ: Chồi 2"'})}
+${lopHTML()}
 ${fld({l:"Họ tên của bé",n:"hs_ten",a:NAME,h:"Viết có dấu, hệ thống tự viết HOA."})}
-<div class="row">${fld({l:"Ngày tháng năm sinh",n:"hs_ns",t:"date",a:'data-age="hs"',h:"Chọn ngày sinh"})}${fld({l:"Số định danh cá nhân",n:"hs_id",a:CC,h:"12 số trên thẻ hoặc VNeID. Đã nhập: 0/12"})}</div>
-${seg("chuho_la","Chủ hộ (theo địa chỉ thường trú) là ai?",["ba|Ba của bé","me|Mẹ của bé","khac|Người khác (ông bà, họ hàng…)"])}
-<div class="hint" style="margin:-8px 0 16px">Chọn đúng mục này, form sẽ tự điền sẵn quan hệ với chủ hộ cho cả nhà.</div>
+<div class="row">${fld({l:"Ngày sinh (ngày/tháng/năm)",n:"hs_ns",t:"date",a:'data-age="hs"',h:"Ví dụ: 25/03/2021"})}${fld({l:"Số định danh cá nhân",n:"hs_id",a:CC,h:"12 số trên thẻ hoặc VNeID. Đã nhập: 0/12"})}</div>
+${dtTg("hs")}
+${seg("hs_qt","Quốc tịch",["Việt Nam|Việt Nam","Nước ngoài|Nước ngoài hoặc song tịch"],"Việt Nam")}
+<div id="qtBox" hidden>${fld({l:"Ghi rõ quốc tịch nước ngoài (nước nào)",n:"hs_qt_nuoc"})}${chk("hs_qt_songtich","Bé có song tịch (Việt Nam và nước ngoài)")}</div>
+${addr2("hs_noisinh","Nơi sinh (bệnh viện, phường/xã, tỉnh/thành phố sau sáp nhập)","Tên bệnh viện / cơ sở y tế")}
+${addr2("hs_quequan","Quê quán (phường/xã, tỉnh/thành phố sau sáp nhập)")}
+${addr2("hs_khaisinh","Nơi đăng ký khai sinh (phường/xã, tỉnh/thành phố sau sáp nhập)")}`;
+
+/* ---------- Bước 2: Cư trú, học tập ---------- */
+$("#s2").innerHTML=`<h2>Cư trú và học tập</h2>
+${seg("chuho_la","Chủ hộ (theo địa chỉ thường trú) là ai?",["ba|Ba của bé","me|Mẹ của bé","khac|Người khác (ông bà, họ hàng…)"],"","Chọn đúng mục này, form sẽ tự điền sẵn quan hệ với chủ hộ cho cả nhà.")}
 ${sel({l:"Quan hệ của bé với chủ hộ (thường trú)",n:"hs_qh",list:REL})}
 ${sel({l:"Quan hệ của bé với chủ hộ (tạm trú)",n:"hs_qh_tt",list:REL,c:"temp"})}
-${area({...HOC,l:"Bé đã học ở trường nào trước đây? (3 năm gần nhất)",n:"hs_hoc"})}
+${hoc("hs")}
 ${addr("hs_dc","Địa chỉ thường trú (theo VNeID)")}
 ${seg("cutru","Diện cư trú hiện tại",["Thường trú|Thường trú","Tạm trú|Tạm trú"],"Thường trú")}
 <label class="opt"><input type="checkbox" id="giong" name="giong" checked><span>Nơi ở hiện tại giống địa chỉ thường trú</span></label>
 ${addr("hs_ht","Nơi ở hiện tại","curaddr")}`;
 
-/* ---------- Bước 2: Gia đình ---------- */
+/* ---------- Bước 3: Ba mẹ + tài khoản ---------- */
 const person=(p,t)=>`<div class="sub" data-t="${t}"><h3>${t}</h3>
 <label class="opt"><input type="checkbox" name="${p}_khong" value="Có"><span>Không có thông tin về ${t.toLowerCase().replace("thông tin ","")} (đã mất, không liên lạc…)</span></label>
 <div id="${p}body">${fld({l:"Họ tên",n:p+"_ten",a:NAME})}
-<div class="row">${fld({l:"Ngày tháng năm sinh",n:p+"_ns",t:"date"})}${fld({l:"Số căn cước công dân",n:p+"_cccd",a:CC,h:"12 số in trên thẻ. Đã nhập: 0/12"})}</div>
+<div class="row">${fld({l:"Ngày sinh (ngày/tháng/năm)",n:p+"_ns",t:"date"})}${fld({l:"Số căn cước công dân",n:p+"_cccd",a:CC,h:"12 số in trên thẻ. Đã nhập: 0/12"})}</div>
+${dtTg(p)}
+<div class="row">${fld({l:"Số điện thoại",n:p+"_sdt",t:"tel",a:PH})}${fld({l:"Nghề nghiệp",n:p+"_nghe"})}</div>
 ${sel({l:"Quan hệ với chủ hộ (thường trú)",n:p+"_qh",list:REL})}
 ${sel({l:"Quan hệ với chủ hộ (tạm trú)",n:p+"_qh_tt",list:REL,c:"temp"})}
 ${sel({l:"Trình độ học vấn cao nhất",n:p+"_hv",list:EDU})}</div></div>`;
-$("#s2").innerHTML=`<h2>Thông tin gia đình</h2><p class="note">Số CCCD sẽ được kiểm tra khớp với ngày sinh để tránh nhập nhầm.</p>${person("ba","Thông tin ba")}${person("me","Thông tin mẹ")}`;
+$("#s3").innerHTML=`<h2>Thông tin ba mẹ</h2><p class="note">Số căn cước sẽ được kiểm tra khớp với ngày sinh để tránh nhập nhầm.</p>${person("ba","Thông tin ba")}${person("me","Thông tin mẹ")}
+<div class="sub" data-t="Tài khoản ngân hàng"><h3>Tài khoản nhận hỗ trợ học phí</h3>
+<p class="note">Thông tin dùng để thực hiện Nghị quyết số 41/2025/NQ-HĐND của Hội đồng nhân dân Thành phố Hồ Chí Minh về chính sách hỗ trợ học phí đối với trẻ em mầm non tại các cơ sở giáo dục ngoài công lập. Ba hoặc mẹ đứng tên đều được.</p>
+${seg("tk_chu","Chủ tài khoản là",["Ba|Ba","Mẹ|Mẹ"],"","Họ tên chủ tài khoản lấy theo họ tên ba hoặc mẹ đã khai ở trên.")}
+${fld({l:"Số tài khoản",n:"tk_so",a:'inputmode="numeric" maxlength="19" pattern="\\d{6,19}" data-num data-msg="Số tài khoản gồm 6 đến 19 chữ số."'})}
+<div class="row">${sel({l:"Ngân hàng",n:"tk_nganhang",list:BANK})}${fld({l:"Chi nhánh",n:"tk_chinhanh",a:'placeholder="Tên chi nhánh / phòng giao dịch"'})}</div></div>`;
 
-/* ---------- Bước 3: Anh/chị/em ---------- */
-$("#s3").innerHTML=`<h2>Anh/chị/em ruột của bé</h2><p class="note">Chỉ tính anh/chị/em ruột từ 1 đến 10 tuổi.</p>
+/* ---------- Bước 4: Anh chị em + chủ hộ ---------- */
+$("#s4").innerHTML=`<h2>Anh/chị/em ruột của bé</h2><p class="note">Chỉ tính anh/chị/em ruột từ 1 đến 10 tuổi.</p>
 ${seg("sib_co","Bé có anh/chị/em ruột từ 1–10 tuổi không?",["0|Không có","1|Có"])}
-<div id="sibwrap" hidden><div id="sibs"></div><button type="button" class="ghost" id="addSib" style="margin-bottom:16px">+ Thêm anh/chị/em</button></div>`;
-const sib=()=>`<div class="sub sib"><h3><span class="no"></span><button type="button" class="x">Xóa</button></h3>
-${fld({l:"Họ và tên",k:"ten",a:NAME})}
-<div class="row">${fld({l:"Ngày tháng năm sinh",k:"ns",t:"date",a:'data-age="sib"'})}${fld({l:"Số căn cước công dân",k:"cccd",req:0,a:CC,h:"Chưa có thì để trống"})}</div>
-${sel({l:"Quan hệ với chủ hộ (thường trú)",k:"qh",list:REL})}
-${sel({l:"Quan hệ với chủ hộ (tạm trú)",k:"qh_tt",list:REL,c:"temp"})}
-${area({...HOC,k:"hoc"})}</div>`;
-function reindex(){$$(".sib").forEach((s,i)=>{s.dataset.t="Anh/chị/em thứ "+(i+1);$(".no",s).textContent=s.dataset.t;$$("[data-k]",s).forEach(e=>e.name=`ac${i+1}_${e.dataset.k}`)})}
-function addSib(quiet){if($$(".sib").length>=6)return;$("#sibs").insertAdjacentHTML("beforeend",sib());reindex();if(!quiet){sync();const l=$$(".sib").pop();$("input",l).focus()}}
-
-/* ---------- Bước 4: Chủ hộ ---------- */
-$("#s3").insertAdjacentHTML("beforeend",`<h2 style="margin-top:30px">Thông tin chủ hộ</h2><p class="note" id="chuNote"></p>
+<div id="sibwrap" hidden><div id="sibs"></div><button type="button" class="ghost" id="addSib" style="margin-bottom:16px">+ Thêm anh/chị/em</button></div>
+<h2 style="margin-top:30px">Thông tin chủ hộ</h2><p class="note" id="chuNote"></p>
 <div class="row">${fld({l:"Họ và tên chủ hộ (thường trú)",n:"ch_ten",a:NAME})}${fld({l:"Ngày sinh chủ hộ",n:"ch_ns",t:"date"})}</div>
+<div id="chDtTg">${dtTg("ch")}</div>
 ${fld({l:"Số điện thoại chủ hộ (thường trú)",n:"ch_sdt",t:"tel",a:PH})}
 <div class="temp" hidden><div class="row">${fld({l:"Họ và tên chủ hộ (tạm trú)",n:"ct_ten",a:NAME})}${fld({l:"Ngày sinh chủ hộ (tạm trú)",n:"ct_ns",t:"date"})}</div>
-${fld({l:"Số điện thoại chủ hộ (tạm trú)",n:"ct_sdt",t:"tel",a:PH})}</div>`);
+${dtTg("ct")}
+${fld({l:"Số điện thoại chủ hộ (tạm trú)",n:"ct_sdt",t:"tel",a:PH})}</div>`;
+const sib=()=>`<div class="sub sib"><h3><span class="no"></span><button type="button" class="x">Xóa</button></h3>
+${fld({l:"Họ và tên",k:"ten",a:NAME})}
+<div class="row">${fld({l:"Ngày sinh (ngày/tháng/năm)",k:"ns",t:"date",a:'data-age="sib"'})}${fld({l:"Số căn cước công dân",k:"cccd",req:0,a:CC,h:"Chưa có thì để trống"})}</div>
+${dtTg("","k")}
+${sel({l:"Quan hệ với chủ hộ (thường trú)",k:"qh",list:REL})}
+${sel({l:"Quan hệ với chủ hộ (tạm trú)",k:"qh_tt",list:REL,c:"temp"})}
+${hoc("")}</div>`;
+function reindex(){$$(".sib").forEach((s,i)=>{s.dataset.t="Anh/chị/em thứ "+(i+1);$(".no",s).textContent=s.dataset.t;$(".hoc",s).dataset.p="ac"+(i+1);
+  $$("[data-k]",s).forEach(e=>e.name=`ac${i+1}_${e.dataset.k}`)})}
+function addSib(quiet){if($$(".sib").length>=6)return;$("#sibs").insertAdjacentHTML("beforeend",sib());reindex();
+  const L=$$(".sib").pop(),dt=$("[data-k=dt]",L);dt.value=lastDt;dt.dataset.auto="1";if(!quiet){sync();$("input",L).focus()}}
+$$(DTSEL).forEach(x=>{x.value="Kinh";x.dataset.auto="1"}); // dân tộc điền sẵn "Kinh", sửa ở một người thì những người chưa chỉnh tay tự đổi theo
 
 /* ---------- Logic thông minh ---------- */
 const val=n=>($(`[name=${n}]:checked`)||{}).value;
 function refresh(){$$("#frm input,#frm select,#frm textarea").forEach(c=>c.disabled=!!c.closest("[hidden]"))}
-const MAP={ba:{hs:"Con",ba:"Chủ hộ",me:"Vợ/Chồng"},me:{hs:"Con",me:"Chủ hộ",ba:"Vợ/Chồng"},khac:{hs:"Cháu",ba:"Con",me:"Con"}};
+const MAP={ba:{hs:"Con đẻ",ba:"Chủ hộ",me:"Vợ"},me:{hs:"Con đẻ",me:"Chủ hộ",ba:"Chồng"},khac:{hs:"",ba:"",me:""}}; // chủ hộ là người khác: phụ huynh tự chọn (cháu nội/ngoại, ở nhờ…)
 function autoRel(){const la=val("chuho_la");if(!la)return;const m=MAP[la];
-  const set=(e,v)=>{if(e&&!e.disabled&&(e.value===""||e.dataset.auto==="1")){e.value=v;e.dataset.auto="1"}};
+  const set=(e,v)=>{if(e&&!e.disabled&&(e.value===""||e.dataset.auto==="1")){e.value=v;e.dataset.auto=v?"1":"0";toggleOth(e)}};
   set($("[name=hs_qh]"),m.hs);set($("[name=ba_qh]"),m.ba);set($("[name=me_qh]"),m.me);$$("[data-k=qh]").forEach(e=>set(e,m.hs))}
 function syncChu(){const la=val("chuho_la"),p=la==="ba"||la==="me"?la:"";
   const ok=p&&!$(`[name=${p}_khong]`).checked;
   ["ten","ns"].forEach(s=>{const e=$(`[name=ch_${s}]`);e.readOnly=!!ok;if(ok)e.value=$(`[name=${p}_${s}]`).value});
-  $("#chuNote").textContent=ok?`Chủ hộ là ${p==="ba"?"ba":"mẹ"} của bé nên họ tên và ngày sinh được lấy từ Phần 2. Ba Mẹ chỉ cần nhập số điện thoại.`:"Điền thông tin chủ hộ theo địa chỉ thường trú."}
+  $("#chDtTg").hidden=!!ok;refresh();
+  $("#chuNote").textContent=ok?`Chủ hộ là ${p==="ba"?"ba":"mẹ"} của bé nên họ tên, ngày sinh, dân tộc, tôn giáo lấy từ Phần ba mẹ. Ba Mẹ chỉ cần nhập số điện thoại.`:"Điền thông tin chủ hộ theo địa chỉ thường trú."}
 function sync(){
   $$(".temp").forEach(e=>e.hidden=val("cutru")!=="Tạm trú");
-  $(".curaddr").hidden=$("#giong").checked;
+  $$(".curaddr").forEach(e=>e.hidden=$("#giong").checked);
   ["ba","me"].forEach(p=>$("#"+p+"body").hidden=$(`[name=${p}_khong]`).checked);
   $("#sibwrap").hidden=val("sib_co")!=="1";
+  $("#qtBox").hidden=val("hs_qt")!=="Nước ngoài";
   refresh();autoRel();syncChu()}
+function toggleOth(s,f){const o=$("[data-oth]",s.closest(".f"));if(!o)return;o.hidden=s.value!==OTH;o.required=!o.hidden;
+  if(o.hidden)o.value="";else if(f){refresh();o.focus()}}
+const toggleH0=c=>{$(".hrows",c.closest(".hoc")).hidden=c.checked};
 
 /* ---------- Tỉnh, phường/xã (API) và khu phố (Google Sheet) ---------- */
 const DB=()=>CONFIG.DIA_BAN||{};
@@ -250,122 +300,151 @@ function setCombo(c,v){if(!v)return;const s=$("[data-cs]",c),t=$("[data-ct]",c),
 async function pxFill(a,pv){const tn=$("[name$=_tinh]",a).value,px=$("[data-c=px]",a),code=pCode(tn);
   if(code&&!GEO.w[code]){px.classList.add("load");try{await geoWards(code)}catch(_){}px.classList.remove("load")}
   if($("[name$=_tinh]",a).value!==tn)return;
-  const list=(code&&GEO.w[code])||Object.keys(DB());
-  comboMode(px,list,!list.length);setCombo(px,pv)}
-function kpFor(a){const px=$("[name$=_px]",a).value,list=dbList(px);
-  comboMode($("[data-c=to]",a),list,!Object.keys(DB()).length||(px&&!list.length))}
+  const list=code?(GEO.w[code]||Object.keys(DB())):(GEO.p?[]:Object.keys(DB()));
+  comboMode(px,list,!list.length&&!(GEO.p&&!tn));setCombo(px,pv)}
+function kpFor(a){const k=$("[data-c=to]",a);if(!k)return;const px=$("[name$=_px]",a).value,list=dbList(px);
+  comboMode(k,list,!Object.keys(DB()).length||(px&&!list.length))}
 async function combos(){try{await geoProv()}catch(_){}
   for(const a of $$(".addr")){const t=$("[data-c=tinh]",a),k=$("[data-c=to]",a),
-    tv=$("[type=hidden]",t).value||CONFIG.TINH,pv=$("[name$=_px]",a).value,kv=$("[name$=_to]",a).value;
+    tv=$("[type=hidden]",t).value||(a.dataset.def==="0"?"":CONFIG.TINH),pv=$("[name$=_px]",a).value,kv=k?$("[name$=_to]",a).value:"";
     comboMode(t,GEO.p?GEO.p.map(x=>x.name):[],!GEO.p);setCombo(t,tv);
-    await pxFill(a,pv);kpFor(a);setCombo(k,kv)}
+    await pxFill(a,pv);if(k){kpFor(a);setCombo(k,kv)}}
   refresh()}
 async function loadDiaBan(){if(!CONFIG.ENDPOINT)return;
   try{const j=await(await fetch(CONFIG.ENDPOINT+"?action=diaban")).json();
     if(j.ok&&j.data&&Object.keys(j.data).length){CONFIG.DIA_BAN=j.data;combos()}}catch(_){}}
 
 /* ---------- Kiểm tra dữ liệu ---------- */
-const mon=v=>{const d=new Date(v),n=new Date();let m=(n.getFullYear()-d.getFullYear())*12+n.getMonth()-d.getMonth();if(n.getDate()<d.getDate())m--;return m};
-function age(v){const d=new Date(v),n=new Date();let a=n.getFullYear()-d.getFullYear();if(n<new Date(n.getFullYear(),d.getMonth(),d.getDate()))a--;return a}
-function cccdWarn(el){const dob=el.closest(".row")?.querySelector("input[type=date]")?.value;if(!dob)return"";
-  const Y=new Date(dob).getFullYear(),d4=+el.value[3],yy=+el.value.slice(4,6),imp=(19+Math.floor(d4/2))*100+yy;
+const pd=v=>{const m=/^(\d{2})\/(\d{2})\/(\d{4})$/.exec(v||"");if(!m)return null;const d=new Date(+m[3],+m[2]-1,+m[1]);return d.getFullYear()===+m[3]&&d.getMonth()===+m[2]-1&&d.getDate()===+m[1]?d:null};
+const age=v=>{const d=pd(v);if(!d)return -1;const n=new Date();let a=n.getFullYear()-d.getFullYear();if(n<new Date(n.getFullYear(),d.getMonth(),d.getDate()))a--;return a};
+const mon=v=>{const d=pd(v);if(!d)return -1;const n=new Date();let m=(n.getFullYear()-d.getFullYear())*12+n.getMonth()-d.getMonth();if(n.getDate()<d.getDate())m--;return m};
+function cccdWarn(el){const dt=pd(el.closest(".row")?.querySelector("[data-date]")?.value);if(!dt)return"";
+  const Y=dt.getFullYear(),d4=+el.value[3],yy=+el.value.slice(4,6),imp=(19+Math.floor(d4/2))*100+yy;
   return imp!==Y?`Số này ứng với năm sinh ${imp}, khác ngày sinh đã nhập (${Y}). Ba Mẹ kiểm tra lại.`:""}
-function validate(el){const f=el.closest(".f");if(!f)return true;const box=$(".msg",f);let e="",w="";
+function validate(el){if(el.classList.contains("dp"))return true;const f=el.closest(".f");if(!f)return true;const box=$(".msg",f);let e="",w="";
   if(!el.disabled){const v=el.validity;
     if(v.valueMissing)e=el.type==="checkbox"?"Cần tích ô này để tiếp tục.":"Mục này bắt buộc.";
     else if(v.patternMismatch)e=el.dataset.msg||"Định dạng chưa đúng.";
-    else if(el.type==="date"&&el.value){const a=age(el.value);
-      if(a<0)e="Ngày sinh không hợp lệ.";
+    else if(el.dataset.date!==undefined&&el.value){const dt=pd(el.value),a=age(el.value);
+      if(!dt||dt>new Date()||dt.getFullYear()<1900)e="Ngày chưa đúng. Ghi theo dạng ngày/tháng/năm, ví dụ 25/03/2019.";
       else if(el.dataset.age==="hs"&&a>6)w=`Bé ${a} tuổi, ngoài độ tuổi mầm non. Ba Mẹ kiểm tra lại ngày sinh.`;
       else if(el.dataset.age==="sib"&&(a<1||a>10))w=`Bé ${a} tuổi, ngoài độ tuổi 1–10. Kiểm tra lại ngày sinh hoặc xóa mục này.`}
     else if(el.dataset.cccd!==undefined&&el.value.length===12)w=cccdWarn(el)}
   el.classList.toggle("bad",!!e);box.textContent=e||w;box.className="msg"+(e||!w?"":" w");return !e}
-function stepValid(n){let first=null;
-  $$("input,select,textarea",$("#s"+n)).forEach(el=>{if(el.disabled||el.name==="website")return;if(!validate(el)&&!first)first=el});
-  if(first){first.scrollIntoView({behavior:"smooth",block:"center"});first.focus({preventScroll:true})}
+function stepValid(n){let first=null;const S=$("#s"+n);
+  $$("input,select,textarea",S).forEach(el=>{if(el.disabled||el.name==="website")return;if(!validate(el)&&!first)first=el});
+  $$(".hoc",S).forEach(g=>{if(g.closest("[hidden]"))return;
+    const none=!$("[data-h0]",g).checked&&!$$(".hrows input",g).some(x=>x.value.trim()),m=g.lastElementChild;
+    m.textContent=none?"Ghi ít nhất 1 năm học, hoặc tích “chưa đi học”.":"";if(none&&!first)first=g});
+  if(first){first.scrollIntoView({behavior:"smooth",block:"center"});if(first.focus)first.focus({preventScroll:true})}
   return !first}
 
 /* ---------- Sự kiện ---------- */
 function upd(t){const h=t.closest(".f")?.querySelector(".hint");if(!h)return;
   if(t.dataset.cccd!==undefined)h.textContent="Đã nhập: "+t.value.length+"/12 số";
-  if(t.dataset.age==="hs"&&t.value){const a=age(t.value);const m=mon(t.value);h.textContent=a<0?"":m<36?m+" tháng tuổi":a+" tuổi"}}
+  if(t.dataset.age==="hs"&&t.value.length===10){const m=mon(t.value),a=age(t.value);h.textContent=m<0?"":m<36?m+" tháng tuổi":a+" tuổi"}}
 const F=$("#frm");
 F.addEventListener("input",e=>{const t=e.target;
   if(t.dataset.num!==undefined){let v=t.value.replace(/\D/g,"");const ph=t.dataset.ph!==undefined;
-    if(ph&&/^84\d{9}$/.test(v))v="0"+v.slice(2);t.value=v.slice(0,ph?10:12)}
+    if(ph&&/^84\d{9}$/.test(v))v="0"+v.slice(2);t.value=v.slice(0,ph?10:(t.maxLength>0?t.maxLength:12))}
+  if(t.dataset.date!==undefined){const v=t.value.replace(/\D/g,"").slice(0,8);t.value=v.length>4?v.slice(0,2)+"/"+v.slice(2,4)+"/"+v.slice(4):v.length>2?v.slice(0,2)+"/"+v.slice(2):v}
+  if(t.closest(".hoc"))t.closest(".hoc").lastElementChild.textContent="";
   upd(t);
   if(t.classList.contains("bad")||(t.dataset.cccd!==undefined&&t.value.length===12))validate(t);
-  if(t.type==="date"){const c=t.closest(".row")?.querySelector("[data-cccd]");if(c&&c.value.length===12)validate(c);if(t.dataset.age)validate(t)}
+  if(t.dataset.date!==undefined&&t.value.length===10){const c=t.closest(".row")?.querySelector("[data-cccd]");if(c&&c.value.length===12)validate(c);validate(t)}
   if(/^(ba|me)_(ten|ns)$/.test(t.name))syncChu();
   save()});
+F.addEventListener("focusin",e=>{if(e.target.matches(DTSEL))e.target.select()});
 F.addEventListener("focusout",e=>{const t=e.target;if(!t.matches("input,select,textarea"))return;
   if(t.dataset.up!==undefined)t.value=t.value.toUpperCase().replace(/\s+/g," ").trim();
   if(t.value&&t.type!=="radio"&&t.type!=="checkbox")validate(t)});
-F.addEventListener("change",e=>{const t=e.target;
-  if(t.tagName==="SELECT"&&t.isTrusted)t.dataset.auto="0";
-  if(t.name==="cutru")$("#giong").checked=t.value!=="Tạm trú";
-  if(t.name==="sib_co"&&t.value==="1"&&!$$(".sib").length)addSib(true);
-  sync();validate(t);save()});
 F.addEventListener("change",async e=>{const t=e.target,c=t.closest(".combo");if(!c)return;
   const k=c.dataset.c,a=c.closest(".addr"),h=$("[type=hidden]",c);
   if(t.matches("[data-cs]")){const o=t.value==="__o",tx=$("[data-ct]",c);tx.hidden=!o;tx.required=o&&c.dataset.req==="1";tx.value="";h.value=o?"":t.value;refresh();if(o)tx.focus()}
   else if(!t.matches("[data-ct]"))return;
   if(k==="tinh"){await pxFill(a,"");kpFor(a);refresh()}else if(k==="px")kpFor(a)});
-F.addEventListener("input",e=>{const t=e.target;if(t.matches("[data-ct]"))$("[type=hidden]",t.closest(".combo")).value=t.value.trim()});
+F.addEventListener("change",e=>{const t=e.target;
+  if(t.classList.contains("dp")){const[y,m,d]=t.value.split("-"),x=$("[data-date]",t.closest(".dw"));
+    if(y){x.value=`${d}/${m}/${y}`;x.dispatchEvent(new Event("input",{bubbles:true}));validate(x)}return}
+  if((t.tagName==="SELECT"||t.matches(DTSEL))&&t.isTrusted)t.dataset.auto="0";
+  if(t.matches(DTSEL)&&t.value&&t.value!==OTH){lastDt=t.value;$$(DTSEL).forEach(x=>{if(x!==t&&x.dataset.auto==="1"){x.value=lastDt;toggleOth(x)}})}
+  if(t.matches("select[data-other]"))toggleOth(t,true);
+  if(t.matches("[data-h0]"))toggleH0(t);
+  if(t.id==="lopsel"){const x=CONFIG.LOP[+t.value]||["",""];$("[name=lop_thuc_te]").value=x[0];$("[name=lop_so_sach]").value=x[1]}
+  if(t.name==="cutru")$("#giong").checked=t.value!=="Tạm trú";
+  if(t.name==="sib_co"&&t.value==="1"&&!$$(".sib").length)addSib(true);
+  sync();validate(t);save()});
+function openCal(b){const w=b.closest(".dw"),dp=$(".dp",w),tx=$("[data-date]",w),d=pd(tx.value);
+  if(d)dp.value=iso(d);else{const n=new Date(),y={hs:4,sib:6}[tx.dataset.age]||32;dp.value=iso(new Date(n.getFullYear()-y,n.getMonth(),n.getDate()))} // mở lịch gần năm sinh thường gặp
+  try{dp.showPicker()}catch(_){dp.focus();dp.click()}}
 document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)return;
-  if(t.dataset.fill){const a=$("textarea",t.closest(".f"));a.value=a.value?a.value+"\n"+t.dataset.fill:t.dataset.fill;a.dispatchEvent(new Event("input",{bubbles:true}));validate(a)}
+  if(t.classList.contains("cal")){openCal(t);return}
   if(t.dataset.go)go(+t.dataset.go);
   if(t.classList.contains("x")&&t.closest(".sib")){t.closest(".sib").remove();reindex();
     if(!$$(".sib").length){$("[name=sib_co][value='0']").checked=true}sync();save()}});
 $("#addSib").onclick=()=>addSib();
 $("#back").onclick=()=>go(cur-1);
 $("#next").onclick=()=>{if(stepValid(cur))go(cur+1)};
-F.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.tagName!=="TEXTAREA"&&cur<4){e.preventDefault();$("#next").click()}});
+F.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.tagName!=="TEXTAREA"&&cur<5){e.preventDefault();$("#next").click()}});
 
 /* ---------- Điều hướng ---------- */
 function go(n){cur=n;
   $$(".step").forEach((s,i)=>s.classList.toggle("here",i+1===n));
   $$(".rail li").forEach((l,i)=>l.className=i+1===n?"on":i+1<n?"done":"");
-  $("#back").hidden=n===1;$("#next").hidden=n===4;$("#send").hidden=n!==4;
-  if(n===3)syncChu();if(n===4)review();
+  $("#back").hidden=n===1;$("#next").hidden=n===5;$("#send").hidden=n!==5;
+  if(n===4)syncChu();if(n===5)review();
   $(".rail").scrollIntoView({behavior:"smooth"});save()}
 
-/* ---------- Trang xác nhận ---------- */
-function review(){const T=["","Bé","Gia đình","Anh/chị/em và chủ hộ"];let h="";
-  for(let i=1;i<=3;i++){const s=$("#s"+i);
+/* ---------- Trang kiểm tra ---------- */
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");
+function review(){const T=["","Bé","Cư trú và học tập","Ba mẹ, tài khoản","Anh chị em, chủ hộ"];let h="";
+  for(let i=1;i<=4;i++){const s=$("#s"+i);
     h+=`<h3>${T[i]}<button type="button" class="ed" data-go="${i}">Sửa</button></h3>`;
-    $$(".f,.addr,.sub",s).forEach(u=>{
-      if(u.closest("[hidden]")||(u.matches(".f")&&u.closest(".addr")))return;
+    $$(".f,.addr,.sub,.hoc",s).forEach(u=>{
+      if(u.closest("[hidden]")||(u.matches(".f")&&(u.closest(".addr")||u.closest(".hoc"))))return;
       if(u.matches(".sub")){h+=`<div class="r t"><span>${u.dataset.t}</span></div>`;return}
       let lb=($(".lbl,label",u)||{}).textContent||"",v="";
-      if(u.matches(".addr"))v=["nha","to","px","tinh"].map(k=>(($(`[name$="_${k}"]`,u)||{}).value||"").trim()).filter(Boolean).join(", ");
+      if(u.matches(".hoc")){lb="Quá trình học tập";v=hocText(u)}
+      else if(u.matches(".addr")){const ps=(u.dataset.parts||"nha,to,px,tinh").split(",");v=ps.map(k=>(($(`[name$="_${k}"]`,u)||{}).value||"").trim()).filter(Boolean).join(", ")}
       else if($("input[type=radio]",u))v=(($("input:checked+span",u))||{}).textContent||"";
-      else if($("select",u))v=$("select",u).selectedOptions[0]?.text.replace("Chọn…","")||"";
+      else if($("select",u)){const sl=$("select",u),o=$("[data-oth]",u);
+        v=sl.value===OTH&&o?"Khác: "+o.value:(sl.selectedOptions[0]?.text.replace("Chọn…","")||"")}
       else v=($("input,textarea",u)||{}).value||"";
-      h+=`<div class="r"><span>${lb}</span><b>${v.replace(/</g,"&lt;")||"—"}</b></div>`})}
+      h+=`<div class="r"><span>${lb}</span><b>${esc(v)||"—"}</b></div>`})}
   $("#rv").innerHTML=h}
 
 /* ---------- Thu thập & gửi ---------- */
 function collect(){reindex();const d={};
   new FormData(F).forEach((v,k)=>d[k]=String(v).trim());
-  $$(".addr").forEach(a=>{if(a.hidden)return;const n=a.dataset.n;d[n]=["nha","to","px","tinh"].map(s=>d[n+"_"+s]).filter(Boolean).join(", ")});
-  ["hs_dc","hs_ht"].forEach(n=>["nha","to","px","tinh"].forEach(s=>delete d[n+"_"+s]));
+  $$(".hoc").forEach(g=>{if(!g.closest("[hidden]"))d[g.dataset.p+"_hoc"]=hocText(g)});
+  Object.keys(d).forEach(k=>{if(/_h[0-3](_lop|_truong)?$/.test(k))delete d[k]});
+  $$(".addr").forEach(a=>{if(a.hidden)return;const n=a.dataset.n,ps=(a.dataset.parts||"nha,to,px,tinh").split(",");
+    d[n]=ps.map(s=>d[n+"_"+s]).filter(Boolean).join(", ");ps.forEach(s=>delete d[n+"_"+s])});
   if($("#giong").checked)d.hs_ht=d.hs_dc;
+  const la=val("chuho_la");
+  if((la==="ba"||la==="me")&&!$(`[name=${la}_khong]`).checked)["dt","dt_khac","tg","tg_khac"].forEach(k=>{if(d[la+"_"+k])d["ch_"+k]=d[la+"_"+k]});
+  if(d.tk_chu)d.tk_ten=d[(d.tk_chu==="Ba"?"ba":"me")+"_ten"]||"";
   delete d.giong;delete d.sib_co;delete d.website;
   d.so_ac=val("sib_co")==="1"?$$(".sib").length:0;
   Object.keys(d).forEach(k=>{if(/_ten$/.test(k))d[k]=d[k].toUpperCase().replace(/\s+/g," ")});
   d.website=$("[name=website]").value;
   d.gui_luc=new Date().toISOString();return d}
+async function guiPhieu(d){const body=JSON.stringify(d);let r;
+  try{r=await fetch(CONFIG.ENDPOINT,{method:"POST",body})}
+  catch(_){await fetch(CONFIG.ENDPOINT,{method:"POST",mode:"no-cors",body});return}
+  let j=null;try{j=await r.json()}catch(_){}
+  if(!j)throw new Error("Máy chủ không trả kết quả hợp lệ (kiểm tra quyền Anyone và đã Deploy bản mới)");
+  if(j.ok===false)throw new Error(j.error||"Lỗi không rõ")}
 F.addEventListener("submit",async e=>{e.preventDefault();
-  for(let i=1;i<=4;i++){if(!stepValid(i)){if(cur!==i)go(i);setTimeout(()=>stepValid(i),50);return}}
+  for(let i=1;i<=5;i++){if(!stepValid(i)){if(cur!==i)go(i);setTimeout(()=>stepValid(i),50);return}}
   const d=collect(),b=$("#send");b.disabled=true;b.textContent="Đang gửi…";
   try{
-    if(CONFIG.ENDPOINT){await fetch(CONFIG.ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(d)})}
+    if(CONFIG.ENDPOINT){await guiPhieu(d)}
     else{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(d,null,2)],{type:"application/json"}));a.download="phieu-"+d.hs_id+".json";a.click();
       $("#doneMsg").textContent="Chế độ thử: chưa cấu hình ENDPOINT nên phiếu được tải về dạng file JSON."}
     try{localStorage.removeItem(KEY)}catch(_){}
     F.hidden=true;$(".rail").hidden=true;$("#sv").hidden=true;$("#done").hidden=false;scrollTo({top:0})
-  }catch(err){b.disabled=false;b.textContent="Gửi lại";alert("Chưa gửi được. Ba Mẹ kiểm tra mạng và bấm Gửi lại. Thông tin vẫn còn nguyên.")}});
+  }catch(err){b.disabled=false;b.textContent="Gửi lại";alert("Chưa lưu được phiếu. Ba Mẹ bấm Gửi lại; nếu vẫn lỗi, báo nhà trường kèm mã lỗi: "+(err.message||err)+". Thông tin Ba Mẹ đã điền vẫn còn nguyên.")}});
 
 /* ---------- Lưu nháp ---------- */
 let tm;
@@ -377,9 +456,11 @@ function save(){if(!ready)return;clearTimeout(tm);tm=setTimeout(()=>{try{const v
 function restore(o){for(let i=0;i<o.n;i++)addSib(true);reindex();
   $$("#frm [name]").forEach(e=>{const v=o.v[e.name];if(v===undefined)return;
     if(e.type==="radio")e.checked=e.value===v;else if(e.type==="checkbox")e.checked=!!v;else e.value=v});
+  $$("select[data-auto]").forEach(x=>x.dataset.auto="0");$$("select[data-other]").forEach(s=>toggleOth(s));$$("[data-h0]").forEach(toggleH0);
+  const ls=$("#lopsel");if(ls){const i=CONFIG.LOP.findIndex(x=>x[0]===$("[name=lop_thuc_te]").value);ls.value=i>=0?String(i):""}
   combos();sync();$$("[data-cccd],[data-age=hs]").forEach(upd);go(o.s||1)}
 try{const o=JSON.parse(localStorage.getItem(KEY)||"null");
-  if(o&&Date.now()-o.t<14*864e5&&Object.values(o.v).some(x=>x&&x!==true&&x!=="Thường trú")){
+  if(o&&Date.now()-o.t<14*864e5&&Object.values(o.v).some(x=>x&&x!==true&&x!=="Thường trú"&&x!=="Việt Nam"&&x!=="Kinh")){
     ready=false;$("#banner").hidden=false;
     $("#rs").onclick=()=>{restore(o);ready=true;$("#banner").hidden=true};
     $("#ds").onclick=()=>{localStorage.removeItem(KEY);ready=true;$("#banner").hidden=true}}}catch(_){}
